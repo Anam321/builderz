@@ -147,7 +147,7 @@
                                  <li class="<?php if ($this->uri->segment(2) == 'service') {
                                                 echo 'active';
                                             } ?>">
-                                     <a href="<?= base_url('admin/service/') ?>">
+                                     <a href="<?= base_url('app-admin/service/') ?>">
                                          <span class="sub-item">Service</span>
                                      </a>
                                  </li>

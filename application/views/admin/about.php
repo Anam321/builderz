@@ -87,9 +87,7 @@
                                                     <div class="mb-3">
 
                                                         <div class="input-group mb-3">
-
                                                             <input type="hidden" name="old_images" value="<?= $aboutData['images'] ?>">
-
                                                             <input type="file" id="file" name="file"
                                                                 class="form-control">
                                                             <button type="submit" class="btn btn-primary me-3"
