@@ -166,13 +166,19 @@
                                          <span class="sub-item">Client</span>
                                      </a>
                                  </li>
-
+                                 <li class="<?php if ($this->uri->segment(2) == 'features') {
+                                                echo 'active';
+                                            } ?>">
+                                     <a href="<?= base_url('app-admin/features/') ?>">
+                                         <span class="sub-item">Features</span>
+                                     </a>
+                                 </li>
                              </ul>
                          </div>
                      </li>
 
 
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'nice_pages') {
+                     <li class="nav-item <?php if ($this->uri->segment(2) == 'pages_seo') {
                                                 echo 'active';
                                             } ?>">
                          <a href="<?= base_url('app-admin/pages_seo/') ?>">
@@ -181,7 +187,15 @@
                          </a>
 
                      </li>
+                     <li class="nav-item <?php if ($this->uri->segment(2) == 'slider') {
+                                                echo 'active';
+                                            } ?>">
+                         <a href="<?= base_url('app-admin/slider/') ?>">
+                             <i class="fas fa-exchange-alt"></i>
+                             <p>Slide</p>
+                         </a>
 
+                     </li>
 
                      <li class="nav-item <?php if ($this->uri->segment(2) == 'message') {
                                                 echo 'active';
@@ -192,21 +206,21 @@
                          </a>
                      </li>
 
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'patner') {
+                     <li class="nav-item <?php if ($this->uri->segment(2) == 'quote') {
                                                 echo 'active';
                                             } ?>">
-                         <a href="<?= base_url('admin/patner/') ?>">
+                         <a href="<?= base_url('app-admin/quote/') ?>">
                              <i class="fa fa-handshake"></i>
                              <p>Patner</p>
                          </a>
                      </li>
 
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'features') {
+                     <li class="nav-item <?php if ($this->uri->segment(2) == 'request') {
                                                 echo 'active';
                                             } ?>">
-                         <a href="<?= base_url('admin/features/') ?>">
+                         <a href="<?= base_url('app-admin/request/') ?>">
                              <i class="fa fa-briefcase"></i>
-                             <p>Features</p>
+                             <p>Request</p>
                          </a>
                      </li>
 

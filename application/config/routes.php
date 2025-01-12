@@ -35,3 +35,9 @@ $route['app-admin/pages_seo'] = 'admin/pages_seo';
 $route['app-admin/service'] = 'admin/service';
 $route['app-admin/service/form'] = 'admin/service/form';
 $route['app-admin/service/edit/(:any)'] = 'admin/service/edit/$1';
+
+$route['app-admin/slider'] = 'admin/slider';
+$route['app-admin/features'] = 'admin/features';
+
+$route['app-admin/quote'] = 'admin/quote';
+$route['app-admin/request'] = 'admin/request';
