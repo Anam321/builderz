@@ -46,7 +46,7 @@
                                         <div class="card-body">
 
                                             <div class="mb-3">
-                                                <textarea name="conten" class="form-control"
+                                                <textarea name="body" class="form-control"
                                                     id="conten"><?= $filed['body'] ?></textarea>
                                             </div>
                                         </div>
@@ -96,6 +96,10 @@
                                                 <label for="link" class="form-label">Slug</label>
                                                 <input type="text" name="link" class="form-control" id="link"
                                                     value="<?= $filed['slug'] ?>">
+                                            </div>
+                                            <div class=" mb-3">
+                                                <label for="meta_title" class="form-label">Meta Title</label>
+                                                <input type="text" name="meta_title" value="<?= $filed['meta_title'] ?>" class="form-control" id="meta_title">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="meta_keyword" class="form-label">Meta Keyword</label>
@@ -187,7 +191,7 @@
                 toastr.info('Meta deskripsi cannot be empty')
                 return false;
             }
-            if ($('[name="title"]').val() == '0') {
+            if ($('[name="title"]').val() == '') {
                 toastr.info('Judul cannot be empty')
                 return false;
             }
@@ -197,7 +201,7 @@
             ).attr('disabled', true);
 
             $.ajax({
-                url: '<?php echo site_url('admin/blog/updateData') ?>',
+                url: '<?php echo site_url('admin/post/updateData') ?>',
                 type: "POST",
                 //contentType: 'multipart/form-data',
                 cache: false,
@@ -220,7 +224,7 @@
                                 timer: 1500,
 
                             }).then((result) => {
-                                window.location = '<?php echo base_url('admin/blog') ?>';
+                                window.location.reload();
                             })
 
                         }, 2000);

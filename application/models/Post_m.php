@@ -3,10 +3,6 @@
 class Post_m extends CI_Model
 {
 
-    var $table = 'post'; //nama tabel dari database
-    var $column_order = array(null, 'images', 'title', 'date_post', 'publik', null); //field yang ada di table user
-    var $column_search = array('images', 'title', 'date_post', 'publik'); //field yang diizin untuk pencarian 
-    var $order = array('id' => 'DESC'); // default order 
 
     public function __construct()
     {
@@ -14,14 +10,14 @@ class Post_m extends CI_Model
         $this->load->database();
     }
 
-    private function _get_datatables_query()
+    private function _get_datatables_query($table, $column_order, $column_search, $order)
     {
 
-        $this->db->from($this->table);
+        $this->db->from($table);
 
         $i = 0;
 
-        foreach ($this->column_search as $item) // looping awalpost
+        foreach ($column_search as $item) // looping awalpost
         {
             if ($_POST['search']['value']) // jika datatable mengirimkan pencarian dengan metode POST
             {
@@ -34,44 +30,50 @@ class Post_m extends CI_Model
                     $this->db->or_like($item, $_POST['search']['value']);
                 }
 
-                if (count($this->column_search) - 1 == $i)
+                if (count($column_search) - 1 == $i)
                     $this->db->group_end();
             }
             $i++;
         }
 
         if (isset($_POST['order'])) {
-            $this->db->order_by($this->column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
+            $this->db->order_by($column_order[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
         } else if (isset($this->order)) {
             $order = $this->order;
             $this->db->order_by(key($order), $order[key($order)]);
         }
     }
 
-    function get_datatables()
+    function get_datatables($table, $column_order, $column_search, $order)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($table, $column_order, $column_search, $order);
         if ($_POST['length'] != -1)
             $this->db->limit($_POST['length'], $_POST['start']);
         $query = $this->db->get();
         return $query->result();
     }
 
-    function count_filtered()
+    function count_filtered($table, $column_order, $column_search, $order)
     {
-        $this->_get_datatables_query();
+        $this->_get_datatables_query($table, $column_order, $column_search, $order);
         $query = $this->db->get();
         return $query->num_rows();
     }
 
-    public function count_all()
+    public function count_all($table)
     {
-        $this->db->from($this->table);
+        $this->db->from($table);
         return $this->db->count_all_results();
     }
-    public function PostData($data)
+    public function getByid($tabel, $where, $value)
     {
-        $r = $this->db->insert('post', $data);
+
+        $query = $this->db->get_where($tabel, [$where => $value])->row_array();
+        return $query;
+    }
+    public function PostData($table, $data)
+    {
+        $r = $this->db->insert($table, $data);
         if ($r) {
             $res['status'] = '00';
             $res['type'] = 'success';
@@ -83,13 +85,6 @@ class Post_m extends CI_Model
         }
         return $res;
     }
-
-
-
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DATA MODEL FRON END >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DATA MODEL FRON END >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-    // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< DATA MODEL FRON END >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
     function check_visitor($ip, $user_agent, $date)
@@ -103,77 +98,11 @@ class Post_m extends CI_Model
     }
 
 
-    public function get_data($limit, $start)
-    {
-        $this->db->where('publik', 1);
-        $this->db->order_by('id', 'DESC');
-        return $this->db->get('pages_blog', $limit, $start)->result();
-    }
-    public function get_databyurl($table, $where, $url, $ordey, $rol)
-    {
-        $this->db->where('publik', 1);
-        if ($rol == 'coment') {
-            $this->db->where($where, $url);
-        }
 
-        $this->db->order_by($ordey, 'DESC');
-        return $this->db->get($table)->result();
-    }
-    public function get_populer_blog($table)
-    {
-        $this->db->limit('20');
-        $this->db->order_by('visitor', 'DESC');
-        return $this->db->get($table)->result();
-    }
-    public function get_countblogLimit()
-    {
-        $this->db->where('publik', 1);
-        return $this->db->get('pages_blog')->num_rows();
-    }
-
-    public function getByid($tabel, $where, $value)
+    public function update($id, $data, $table)
     {
 
-        $query = $this->db->get_where($tabel, [$where => $value])->row_array();
-        return $query;
-    }
-    public function get_jmlcom($url)
-    {
-
-        $this->db->where('publik', 1);
-        $this->db->where('blog', $url);
-        $this->db->order_by('id', 'DESC');
-        return $this->db->get('pages_blog_coment')->num_rows();
-    }
-    public function insertData()
-    {
-        $data = array(
-            'nama' => htmlspecialchars($this->input->post('nama', true)),
-            'web' => htmlspecialchars($this->input->post('web', true)),
-            'email' => htmlspecialchars($this->input->post('email', true)),
-            'coment' => htmlspecialchars($this->input->post('coment', true)),
-            'blog' => htmlspecialchars($this->input->post('blog', true)),
-            'date' => date('Y-m-d H:i:s'),
-            'publik' => 1,
-        );
-
-        $r = $this->db->insert('pages_blog_coment', $data);
-        if ($r) {
-            $res['status'] = '00';
-            $res['type'] = 'success';
-            $res['mess'] = 'Success Input Data';
-        } else {
-            $res['status'] = '01';
-            $res['type'] = 'warning';
-            $res['mess'] = 'Error Input Data, please try again...';
-        }
-        return $res;
-    }
-
-    public function update($id, $data)
-    {
-
-        $r = $this->db->update('post', $data, $id);
+        $r = $this->db->update($table, $data, $id);
         if ($r) {
             $res['status'] = '00';
             $res['type'] = 'success';
@@ -201,23 +130,10 @@ class Post_m extends CI_Model
         }
         return $res;
     }
-    public function delete($id)
+    public function delete($table, $id)
     {
-
-        $q = $this->db->query("select images from pages_blog where id = '$id'")->row();
-        $foto = $q->images;
-
-        // var_dump($foto);
-
-        $path = './assets/upload/blog/';
-        // hapus file
-        if (file_exists($path . $foto)) {
-            unlink($path . $foto);
-        }
-
-
         $this->db->where('id', $id);
-        $r = $this->db->delete('pages_blog');
+        $r = $this->db->delete($table);
 
         if ($r) {
             $res['status'] = '00';

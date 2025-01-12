@@ -24,3 +24,9 @@ $route['request/download/pdf/(:any)'] = 'service/downloadFile/$1';
 $route['app-admin/post/post_list'] = 'admin/post/index';
 $route['app-admin/post/form'] = 'admin/post/form';
 $route['app-admin/post/edit/(:any)'] = 'admin/post/edit/$1';
+
+$route['app-admin/post/kategori'] = 'admin/post/kategori';
+$route['app-admin/post/form_kategori'] = 'admin/post/form_kategori';
+$route['app-admin/post/kategori/edit/(:any)'] = 'admin/post/editkategori/$1';
+
+$route['app-admin/about'] = 'admin/about';

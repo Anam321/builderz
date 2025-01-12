@@ -90,9 +90,9 @@
                          </div>
                      </li>
 
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'catalog') {
-                                                echo 'active';
-                                            } elseif ($this->uri->segment(2) == 'categori') ?>">
+                     <!-- <li class="nav-item <?php if ($this->uri->segment(2) == 'catalog') {
+                                                    echo 'active';
+                                                } elseif ($this->uri->segment(2) == 'categori') ?>">
                          <a data-bs-toggle="collapse" href="#katalog">
                              <i class="fas fa-image"></i>
                              <p>Katalog</p>
@@ -117,7 +117,7 @@
 
                              </ul>
                          </div>
-                     </li>
+                     </li> -->
 
 
                      <li class="nav-item  <?php if ($this->uri->segment(2) == 'about') {
@@ -139,7 +139,7 @@
                                  <li class="<?php if ($this->uri->segment(2) == 'about') {
                                                 echo 'active';
                                             } ?>">
-                                     <a href="<?= base_url('admin/about/') ?>">
+                                     <a href="<?= base_url('app-admin/about/') ?>">
                                          <span class="sub-item">About</span>
                                      </a>
                                  </li>
