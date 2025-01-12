@@ -20,7 +20,7 @@ class About extends CI_Controller
     public function index()
     {
         $data['app'] = $this->db->get_where('set_app', ['id' => 1])->row_array();
-        $data['metaTitle'] = 'Dashboard';
+        $data['metaTitle'] = 'About';
         $data['componen'] = $this->componen();
 
 

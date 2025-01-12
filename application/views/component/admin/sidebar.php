@@ -175,30 +175,11 @@
                      <li class="nav-item <?php if ($this->uri->segment(2) == 'nice_pages') {
                                                 echo 'active';
                                             } ?>">
-                         <a data-bs-toggle="collapse" href="#np">
+                         <a href="<?= base_url('app-admin/pages_seo/') ?>">
                              <i class="fas fa-layer-group"></i>
-                             <p>Nice Pages</p>
-                             <span class="caret"></span>
+                             <p>Pages Seo</p>
                          </a>
-                         <div class="collapse" id="np">
-                             <ul class="nav nav-collapse">
-                                 <li class="<?php if ($this->uri->segment(2) == 'nice_pages') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('admin/nice_pages/') ?>">
-                                         <span class="sub-item">Nice Pages</span>
-                                     </a>
-                                 </li>
-                                 <li class="<?php if ($this->uri->segment(2) == 'slider') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('admin/slider/') ?>">
-                                         <span class="sub-item">Slider</span>
-                                     </a>
-                                 </li>
 
-                             </ul>
-                         </div>
                      </li>
 
 

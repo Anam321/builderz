@@ -30,6 +30,8 @@ $route['app-admin/post/form_kategori'] = 'admin/post/form_kategori';
 $route['app-admin/post/kategori/edit/(:any)'] = 'admin/post/editkategori/$1';
 
 $route['app-admin/about'] = 'admin/about';
+$route['app-admin/pages_seo'] = 'admin/pages_seo';
+
 $route['app-admin/service'] = 'admin/service';
 $route['app-admin/service/form'] = 'admin/service/form';
 $route['app-admin/service/edit/(:any)'] = 'admin/service/edit/$1';
