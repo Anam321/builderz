@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 11, 2025 at 11:19 AM
+-- Generation Time: Jan 13, 2025 at 06:47 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -202,7 +202,8 @@ INSERT INTO `login_attempts` (`id`, `username`, `ip_address`, `attempt_time`) VA
 (48, 'superadmin', '180.244.57.88', '2024-11-28 10:01:09'),
 (49, 'superadmin', '180.254.77.2', '2024-12-06 01:04:23'),
 (54, 'sssds', '::1', '2024-12-21 14:05:14'),
-(56, 'kdd', '127.0.0.1', '2025-01-11 08:47:09');
+(56, 'kdd', '127.0.0.1', '2025-01-11 08:47:09'),
+(57, 'Superadmin', '::1', '2025-01-12 14:15:25');
 
 -- --------------------------------------------------------
 
@@ -219,13 +220,6 @@ CREATE TABLE `pages_client` (
   `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `alamat` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `pages_client`
---
-
-INSERT INTO `pages_client` (`id`, `id_projek`, `testimoni`, `foto`, `publik`, `name`, `alamat`) VALUES
-(4, 3, 'Hasil pemasangan kanopinya bagus banget, kuat dan presisi. Meski cuaca sedang sering hujan, sama sekali nggak ada masalah bocor atau rembes. Suka banget sama finishing-nya yang rapi dan bersih. Sukses terus buat timnya!', 'sa.jpg', 1, 'Rosa', 'TANGERANG');
 
 -- --------------------------------------------------------
 
@@ -247,10 +241,10 @@ CREATE TABLE `pages_seo` (
 --
 
 INSERT INTO `pages_seo` (`id`, `pages`, `title_seo`, `deskripsi_seo`, `keyword_seo`, `images`) VALUES
-(1, 'SERVICE', 'Jasa dan layanan SEO', 'tips dan trik Jasa dan layanan SEO', 'Jasa,dan,layanan,SEO', 'service_seo.jpg'),
-(2, 'PROJECT', 'proyek dan portfolio', 'inilah deskripsi proyek dan portfolio', 'projek,portfolio', 'portfolio-1.jpg'),
-(3, 'BLOG', 'Blog Post Tentang blog', 'ini adalah deskripsi blog', '', 'blog-2.jpg'),
-(4, 'KONTAK', 'Ini adlah judul kontak', 'ini adalah deskripsi kontak', '', 'kontak.jpg');
+(1, 'SERVICE', 'Jasa dan layanan SEO', 'tips dan trik Jasa dan layanan SEO', 'Jasa,dan,layanan,SEOs', '1736666353.jpg'),
+(2, 'PROJECT', 'proyek dan portfolio', 'inilah deskripsi proyek dan portfolio', 'projek,portfolio', '1736666492.jpg'),
+(3, 'BLOG', 'Blog Post Tentang blog', 'ini adalah deskripsi blog', '', '1736666509.jpg'),
+(4, 'KONTAK', 'Ini adlah judul kontak', 'ini adalah deskripsi kontak', '', '1736666529.jpg');
 
 -- --------------------------------------------------------
 
@@ -272,15 +266,6 @@ CREATE TABLE `post` (
   `video` varchar(100) NOT NULL,
   `categori` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `post`
---
-
-INSERT INTO `post` (`id`, `title`, `body`, `date`, `images`, `slug`, `meta_title`, `meta_deskripsi`, `meta_keyword`, `visitor`, `video`, `categori`) VALUES
-(1, 'Lorem ipsum dolor sit amet', 'Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.\r\n\r\nVoluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.\r\n\r\nLorem ipsum dolor sit amet\r\nSadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.\r\n\r\nVoluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.', '2025-01-10', 'blog-1.jpg', 'Lorem-ipsum-dolor-sit-amet', 'Lorem ipsum dolor sit amet', 'Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem.', 'Lorem, ipsum', 1, 'https://youtube.com/embed/uGBDblxOJuY?si=cozXpO7bLNYlnzTj', 2),
-(7, 'Jasa Pembuatan Kusen Aluminium Di Sawangan Lama Depok Terpercaya', '<p data-pm-slice=\"1 1 []\" style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><span style=\"box-sizing: border-box; font-size: 1.07rem; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);\">Ketika berbicara tentang kebutuhan konstruksi atau renovasi, salah satu elemen yang penting adalah kusen. Di era modern seperti sekarang, kusen aluminium telah menjadi pilihan utama bagi banyak orang karena berbagai kelebihan yang ditawarkannya. Di Sawangan Lama Depok, terdapat banyak penyedia jasa kusen aluminium terpercaya yang siap memenuhi kebutuhan Anda. Artikel ini akan membahas secara lengkap mengenai jasa kusen aluminium, jenis-jenisnya, kelebihannya dibandingkan kayu, harga per meter, dan banyak lagi. Mari kita mulai!</span></p><div style=\"box-sizing: border-box; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"></div><h3 style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-family: &quot;Playfair Display&quot;, serif; font-weight: 500; line-height: 1.2; color: rgb(0, 18, 72); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\"><strong style=\"box-sizing: border-box; font-weight: bolder;\">Apa Itu Kusen Aluminium?</strong></h3><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Kusen aluminium adalah rangkaian atau bingkai yang terbuat dari material aluminium, digunakan untuk menopang pintu, jendela, atau kaca. Material aluminium dikenal karena kekuatannya yang tahan lama, ringan, dan anti karat, menjadikannya solusi ideal untuk bangunan modern.</p><p></p>', '2025-01-11', 'jasa-pembuatan-kusen-aluminium-di-sawangan-lama-depok-terpercaya', 'jasa-pembuatan-kusen-aluminium-di-sawangan-lama-depok-terpercaya', 'Jasa Pembuatan Kusen Aluminium Di Sawangan Lama Depok Terpercaya', 'aluminium adalah rangkaian atau bingkai yang terbuat dari material aluminium, digunakan untuk menopang pintu, jendela, atau kaca. Material aluminium dikenal ka', '', 0, '', 1),
-(8, 'Renovasi Rumah Konsep Industrial Low Budget ', '<p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Renovasi rumah dengan konsep industrial dengan anggaran terbatas kini semakin populer. Konsep ini berhasil menggabungkan tampilan modern dan efisiensi biaya. Dikenal dengan menonjolkan bahan-bahan dan struktur asli bangunan, konsep ini menghindari kebutuhan untuk menutupi atau memperindah banyak bagian rumah. Hasilnya, proses renovasi menjadi lebih cepat dan biaya pembangunan lebih terjangkau. Rumah dengan konsep ini memiliki tampilan artistik dan menarik, menjadikannya pilihan yang tepat bagi pemilik rumah yang ingin tampil beda tanpa membebani anggaran.</p><h3 style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-family: &quot;Playfair Display&quot;, serif; font-weight: 500; line-height: 1.2; color: rgb(0, 18, 72); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Keunggulan Konsep Industrial dalam Renovasi Rumah</h3><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Salah satu daya tarik utama dari konsep industrial adalah penggunaan material sederhana yang dipadukan dengan kreativitas. Bahan seperti baja, logam, dan semen ekspos sering digunakan untuk menciptakan suasana industrial yang kental. Dalam proyek renovasi yang dikerjakan oleh Anugrah<span>&nbsp;</span><a href=\"https://anugrahalmunium.com/blog/renovasi-rumah-konsep-industrial-low-budget-oleh-anugrah-almunium#\" class=\"google-anno\" data-google-vignette=\"false\" data-google-interstitial=\"false\" style=\"box-sizing: border-box; color: rgb(14, 18, 29); text-decoration: none !important; border: 0px !important; box-shadow: none !important; display: inline !important; float: none !important; margin: 0px !important; outline: 0px !important; padding: 0px !important; fill: currentcolor !important;\"><svg viewBox=\"100 -1000 840 840\" width=\"calc(16px - 2px)\" height=\"16px\" style=\"color-scheme: initial !important; forced-color-adjust: initial !important; mask: initial !important; math-depth: initial !important; position: initial !important; position-anchor: initial !important; text-size-adjust: initial !important; appearance: initial !important; color: inherit !important; font: initial !important; font-palette: initial !important; font-synthesis: initial !important; position-area: initial !important; text-orientation: initial !important; text-rendering: initial !important; text-spacing-trim: initial !important; -webkit-font-smoothing: initial !important; -webkit-locale: initial !important; -webkit-text-orientation: initial !important; -webkit-writing-mode: initial !important; writing-mode: initial !important; zoom: initial !important; accent-color: initial !important; place-content: initial !important; place-items: initial !important; place-self: initial !important; alignment-baseline: initial !important; anchor-name: initial !important; anchor-scope: initial !important; animation-composition: initial !important; animation: initial !important; app-region: initial !important; aspect-ratio: initial !important; backdrop-filter: initial !important; backface-visibility: initial !important; background: initial !important; background-blend-mode: initial !important; baseline-shift: initial !important; baseline-source: initial !important; block-size: initial !important; border-block: initial !important; border: 0px !important; border-radius: initial !important; border-collapse: initial !important; border-end-end-radius: initial !important; border-end-start-radius: initial !important; border-inline: initial !important; border-start-end-radius: initial !important; border-start-start-radius: initial !important; inset: initial !important; box-decoration-break: initial !important; box-shadow: none !important; box-sizing: initial !important; break-after: initial !important; break-before: initial !important; break-inside: initial !important; buffered-rendering: initial !important; caption-side: initial !important; caret-color: initial !important; clear: initial !important; clip: initial !important; clip-path: initial !important; clip-rule: initial !important; color-interpolation: initial !important; color-interpolation-filters: initial !important; color-rendering: initial !important; columns: initial !important; column-fill: initial !important; gap: initial !important; column-rule: initial !important; column-span: initial !important; contain: initial !important; contain-intrinsic-block-size: initial !important; contain-intrinsic-size: initial !important; contain-intrinsic-inline-size: initial !important; container: initial !important; content: initial !important; content-visibility: initial !important; counter-increment: initial !important; counter-reset: initial !important; counter-set: initial !important; cursor: inherit !important; cx: initial !important; cy: initial !important; d: initial !important; display: inline !important; dominant-baseline: initial !important; empty-cells: initial !important; field-sizing: initial !important; fill: currentcolor !important; fill-opacity: initial !important; fill-rule: initial !important; filter: initial !important; flex: initial !important; flex-flow: initial !important; float: none !important; flood-color: initial !important; flood-opacity: initial !important; grid: initial !important; grid-area: initial !important; height: initial !important; hyphenate-character: initial !important; hyphenate-limit-chars: initial !important; hyphens: initial !important; image-orientation: initial !important; image-rendering: initial !important; initial-letter: initial !important; inline-size: initial !important; inset-block: initial !important; inset-inline: initial !important; interpolate-size: initial !important; isolation: initial !important; letter-spacing: initial !important; lighting-color: initial !important; line-break: initial !important; list-style: initial !important; margin-block: initial !important; margin: 0px !important; margin-inline: initial !important; marker: initial !important; mask-type: initial !important; math-shift: initial !important; math-style: initial !important; max-block-size: initial !important; max-height: initial !important; max-inline-size: initial !important; max-width: initial !important; min-block-size: initial !important; min-height: initial !important; min-inline-size: initial !important; min-width: initial !important; mix-blend-mode: initial !important; object-fit: initial !important; object-position: initial !important; object-view-box: initial !important; offset: initial !important; opacity: initial !important; order: initial !important; orphans: initial !important; outline: 0px !important; outline-offset: initial !important; overflow-anchor: initial !important; overflow-clip-margin: initial !important; overflow-wrap: initial !important; overflow: initial !important; overlay: initial !important; overscroll-behavior-block: initial !important; overscroll-behavior-inline: initial !important; overscroll-behavior: initial !important; padding-block: initial !important; padding: 0px !important; padding-inline: initial !important; page: initial !important; page-orientation: initial !important; paint-order: initial !important; perspective: initial !important; perspective-origin: initial !important; pointer-events: initial !important; position-try: initial !important; position-visibility: initial !important; quotes: initial !important; r: initial !important; resize: initial !important; rotate: initial !important; ruby-align: initial !important; ruby-position: initial !important; rx: initial !important; ry: initial !important; scale: initial !important; scroll-behavior: initial !important; scroll-margin-block: initial !important; scroll-margin: initial !important; scroll-margin-inline: initial !important; scroll-padding-block: initial !important; scroll-padding: initial !important; scroll-padding-inline: initial !important; scroll-snap-align: initial !important; scroll-snap-stop: initial !important; scroll-snap-type: initial !important; scroll-timeline: initial !important; scrollbar-color: initial !important; scrollbar-gutter: initial !important; scrollbar-width: initial !important; shape-image-threshold: initial !important; shape-margin: initial !important; shape-outside: initial !important; shape-rendering: initial !important; size: initial !important; speak: initial !important; stop-color: initial !important; stop-opacity: initial !important; stroke: initial !important; stroke-dasharray: initial !important; stroke-dashoffset: initial !important; stroke-linecap: initial !important; stroke-linejoin: initial !important; stroke-miterlimit: initial !important; stroke-opacity: initial !important; stroke-width: initial !important; tab-size: initial !important; table-layout: initial !important; text-align: initial !important; text-align-last: initial !important; text-anchor: initial !important; text-combine-upright: initial !important; text-decoration: initial !important; text-decoration-skip-ink: initial !important; text-emphasis: initial !important; text-emphasis-position: initial !important; text-indent: initial !important; text-overflow: initial !important; text-shadow: initial !important; text-transform: initial !important; text-underline-offset: initial !important; text-underline-position: initial !important; text-wrap: initial !important; timeline-scope: initial !important; touch-action: initial !important; transform: initial !important; transform-box: initial !important; transform-origin: initial !important; transform-style: initial !important; transition: initial !important; translate: initial !important; user-select: initial !important; vector-effect: initial !important; vertical-align: initial !important; view-timeline: initial !important; view-transition-class: initial !important; view-transition-name: initial !important; visibility: initial !important; border-spacing: initial !important; -webkit-box-align: initial !important; -webkit-box-decoration-break: initial !important; -webkit-box-direction: initial !important; -webkit-box-flex: initial !important; -webkit-box-ordinal-group: initial !important; -webkit-box-orient: initial !important; -webkit-box-pack: initial !important; -webkit-box-reflect: initial !important; -webkit-line-break: initial !important; -webkit-line-clamp: initial !important; -webkit-mask-box-image: initial !important; -webkit-print-color-adjust: initial !important; -webkit-rtl-ordering: initial !important; -webkit-ruby-position: initial !important; -webkit-tap-highlight-color: initial !important; -webkit-text-combine: initial !important; -webkit-text-decorations-in-effect: initial !important; -webkit-text-fill-color: unset !important; -webkit-text-security: initial !important; -webkit-text-stroke: initial !important; -webkit-user-drag: initial !important; white-space-collapse: initial !important; widows: initial !important; width: initial !important; will-change: initial !important; word-break: initial !important; word-spacing: initial !important; x: initial !important; y: initial !important; z-index: initial !important;\"><path d=\"M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z\"></path></svg>&nbsp;<span class=\"google-anno-t\" style=\"box-sizing: border-box; border: 0px !important; box-shadow: none !important; display: inline !important; float: none !important; margin: 0px !important; outline: 0px !important; padding: 0px !important; text-decoration: underline dotted !important; color: inherit !important; font-family: inherit !important; font-size: inherit !important; font-style: inherit !important; font-weight: inherit !important;\">Aluminium</span></a>, bahkan mesin sepeda motor tua dimanfaatkan sebagai elemen dekorasi interior. Hal ini menambah sentuhan personal yang unik dalam ruang yang terbatas, memberi keseimbangan antara fungsionalitas dan estetika.</p><h3 style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-family: &quot;Playfair Display&quot;, serif; font-weight: 500; line-height: 1.2; color: rgb(0, 18, 72); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Implementasi Desain Industrial di Rumah Tinggal</h3><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Konsep industrial tak hanya populer di kafe, restoran, atau ruang kerja, tetapi juga sangat cocok diterapkan di hunian pribadi. Salah satu cara untuk mengatasi keterbatasan ruang adalah dengan memaksimalkan penggunaan kaca besar pada dinding utama. Hal ini menciptakan ilusi ruang yang lebih luas dan terang. Di bagian depan rumah, penerapan vertical garden yang menggunakan pipa besi dan kayu memberikan kesan segar, sesuai dengan keinginan pemilik rumah.</p><h3 style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-family: &quot;Playfair Display&quot;, serif; font-weight: 500; line-height: 1.2; color: rgb(0, 18, 72); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Interior Rumah dengan Sentuhan Industrial</h3><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Kesederhanaan menjadi inti dari desain ruang tamu dalam konsep industrial. Kursi panjang berbahan besi dipadukan dengan cushion berwarna cerah dan meja kaca kecil memberikan kesan lapang. Lantai semen ekspos dengan aksen keramik tekel menambah keanggunan dan karakter pada ruang tersebut. Ruang keluarga dan ruang tamu dipisahkan dengan rak kayu dan besi yang memberikan keseimbangan antara nuansa industrial dan kehangatan.</p><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Desainer dari Anugrah Aluminium juga sangat efisien dalam memanfaatkan ruang yang ada. Pada tangga menuju lantai dua, penggunaan besi dan dinding bata ekspos menciptakan area yang menarik. Di bawah tangga, ada ruang kerja minimalis yang dilengkapi dengan meja ramping, menambah fungsionalitas desain industrial yang khas.</p><h3 style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 0.5rem; font-family: &quot;Playfair Display&quot;, serif; font-weight: 500; line-height: 1.2; color: rgb(0, 18, 72); font-size: 1.75rem; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Dapur dan Ruang Makan di Lantai Dua</h3><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 1rem; color: rgb(125, 125, 125); font-family: Roboto, sans-serif; font-size: 16px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(255, 255, 255); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;\">Lantai dua menampilkan dapur dan ruang makan dengan dominasi warna off-white yang memberikan kesan modern dan bersih. Top table dari semen ekspos menjadi elemen yang mempertegas tema industrial. Furnitur yang compact, seperti kursi makan yang juga dapat berfungsi sebagai penyimpanan, mengoptimalkan penggunaan ruang. Untuk menambah kesan luas, arsitek menyarankan pembuatan void di atas dapur. Voiding ini memberikan kesan ruang yang lebih terbuka dan memaksimalkan pencahayaan alami.</p><p></p>', '2025-01-11', 'renovasi-rumah-konsep-industrial-low-budget-.jpg', 'renovasi-rumah-konsep-industrial-low-budget-', 'Renovasi Rumah Konsep Industrial Low Budget ', 'mu dalam konsep industrial. Kursi panjang berbahan besi dipadukan dengan cushion berwarna cerah dan meja kaca kecil memberikan kesan lapang. Lantai semen ekspos ', '', 0, '', 1);
 
 -- --------------------------------------------------------
 
@@ -338,16 +323,6 @@ CREATE TABLE `project_request` (
   `hit` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
---
--- Dumping data for table `project_request`
---
-
-INSERT INTO `project_request` (`id`, `nama`, `email`, `telpon`, `service`, `message`, `date`, `hit`) VALUES
-(1, 'dadang', 'dandan@gmail.com', '0984747', 'RENOVASI', '', '2025-01-10', 1),
-(2, 'junaedin', 'junadeni@mail.mm', '4343434542', 'RENOVASI', 'sasadssad', '2025-01-10', 1),
-(3, 'imas', 'imas@imas', '0887767677', 'GORDEN', 'kkkslslslslls', '2025-01-10', 1),
-(4, 'ksks', 'dsds@dfd.com', '', '', 'sds', '2025-01-11', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -391,8 +366,8 @@ CREATE TABLE `ref_message` (
 --
 
 INSERT INTO `ref_message` (`id`, `nama`, `email`, `nohp`, `subject`, `message`, `date`, `hit`) VALUES
-(5, 'sssdds', 'dsadsa@fd.gg', '434234', '343', 'fdfdsvsvsgsgsd', '2025-01-11 00:00:00', 1),
-(6, 'sadas', '4534gsg@tjs.vb', '545', 'sfsdf', 'dfsdf', '2025-01-11 00:00:00', 1);
+(5, 'sssdds', 'dsadsa@fd.gg', '434234', '343', 'fdfdsvsvsgsgsd', '2025-01-11 00:00:00', 0),
+(6, 'sadas', '4534gsg@tjs.vb', '545', 'sfsdf', 'Renovasi rumah dengan konsep industrial dengan anggaran terbatas kini semakin populer. Konsep ini berhasil menggabungkan tampilan modern dan efisiensi biaya. Dikenal dengan menonjolkan bahan-bahan dan struktur asli bangunan, konsep ini menghindari kebutuhan untuk menutupi atau memperindah banyak bagian rumah. Hasilnya, proses renovasi menjadi lebih cepat dan biaya pembangunan lebih terjangkau. Rumah dengan konsep ini memiliki tampilan artistik dan menarik, menjadikannya pilihan yang tepat bagi pemilik rumah yang ingin tampil beda tanpa membebani anggaran.', '2025-01-11 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -416,31 +391,6 @@ CREATE TABLE `ref_projek` (
   `fed` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `ref_projek`
---
-
-INSERT INTO `ref_projek` (`id_projek`, `nama_projek`, `keterangan`, `volume`, `tgl_mulai`, `tgl_akhir`, `nama_client`, `alamat`, `id_kategori`, `status`, `nohp`, `email`, `fed`) VALUES
-(1, 'Pemasangan Kanopi Atap Alderon Di Daerah Tangerang Portfolio Anugrah Almunium', 'Pemasangan kanopi atap alderon di daerah tangerang. instalasi di kerjakan dalam waktu 4 hari', '', '2024-01-01', '2024-01-06', 'Bapak Hendi', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(2, 'Pemasangan Kanopi Atap Kaca Tempred Di Daerah Cluster Tangrang', 'Pemasangan kanopi atap kaca tempred di daerah tangerang di rumah ibu niken, dengan estimasi waktu 1 minggu, instalasi di lakukan dengan sangat presisi.', '', '2024-02-07', '2024-02-16', 'Ibu Niken', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(3, 'Instalasi Pemasangan Kanopi Atap Kaca Tempred Di Daerah Cluster Tangrang Pak Hendra', 'Instalasi pemasangan kanopi atap kaca tempred pak hendra di laksanakan dalam waktu satu minggu, portfolio pemasangan di daerah tangerang', '', '2024-02-19', '2024-02-29', 'Pak Hendra', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(4, 'Pemasangan kanopi Atap Alderon Dengan Plavon Pvc Di Daerah Tangerang', 'Apakah Anda sedang mencari solusi untuk melindungi area rumah Anda dari panas dan hujan, sekaligus menambah estetika rumah? Jasa Pasang Kanopi terpercaya di Tangerang siap memberikan solusi terbaik untuk Anda', '', '2024-03-04', '2024-03-07', 'Pak Tedi', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(5, 'Pembuatan Dan Pemasangan Atap Alderon Plavon Pvc Di Daerah Tangerang Ibu Sasa', 'Kami menyediakan berbagai jenis kanopi berkualitas tinggi, mulai dari kanopi alderon, baja ringan, hingga polycarbonate, sesuai dengan kebutuhan dan gaya rumah Anda. Didukung oleh tim profesional yang berpengalaman, setiap pemasangan dilakukan dengan presisi, memastikan hasil yang rapi dan kuat.', '', '2024-04-16', '2024-04-20', 'Ibu Sasa', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(6, 'Pemasangan Kanopi Balkon Di Daerah Tangerang Banten Cluster Area', 'Sedang mencari solusi atap terbaik untuk rumah atau bisnis Anda di Tangerang? Kami hadir dengan solusi yang tepat! Inilah saatnya untuk meningkatkan kenyamanan dan keindahan properti Anda dengan jasa pasang kanopi terpercaya.', '', '2024-09-15', '2024-10-10', 'Ibu Fitri', 'Tangerang, Banten, Indonesia', 2, 0, '', '', 0),
-(7, 'Pemasangan Instalasi Pintu Kasa Nyamuk', 'Anugrah Aluminium baru saja menyelesaikan proyek pemasangan pintu kasa nyamuk di rumah Ibu Rina, berlokasi di kawasan Perumahan Modern Indah, Tangerang. Proyek ini bertujuan untuk memberikan perlindungan dari serangga dan nyamuk tanpa mengorbankan sirkulasi udara di dalam rumah.', '1', '2024-10-02', '2024-10-04', 'Bapak Suhenda', 'Tangerang, Banten', 4, 0, '', '', 0),
-(8, 'Pemasangan Kanopi Plafon Pvc di Cendana lipo no 9 Tangerang', 'Bikin rumah makin adem, tahan bocor, dan tampil elegan dengan kanopi Alderon serta plafon PVC. Pembuatan dan pemasangan kanopi aderon plafon pvc di jl cendana no 9 tangerang', '', '2024-10-11', '2024-10-15', 'Pak Herdi', ' Cendana No 9 Tangerang', 2, 0, '', '', 0),
-(9, 'Pemasangan Pintu Dan Kusen Almunium', 'Yuk, lihat proses pemasangan jendela dan pintu oleh Anugrah Aluminium yang membuat tampilan rumah makin stylish dan fungsional! Dengan bahan berkualitas dan detail pengerjaan terbaik, kami memberikan hasil yang memuaskan untuk kebutuhan rumah Anda. Jangan lupa like, komen, dan share agar semakin banyak orang tahu tentang layanan ini', '', '2024-10-19', '2024-10-22', '', 'Tangerang', 5, 0, '', '', 0),
-(10, 'Pembuatan dan instalasi kusen almunium', 'Kusen aluminium kini menjadi pilihan utama dalam konstruksi bangunan, baik itu rumah, kantor, ataupun gedung komersial. Material ini menawarkan berbagai keuntungan, mulai dari ketahanan terhadap cuaca, daya tahan lama, hingga desain yang modern dan elegan. Anugrah Aluminium, perusahaan terkemuka di bidang pembuatan dan pemasangan kusen aluminium, telah dipercaya oleh banyak klien di Tangerang untuk memenuhi kebutuhan konstruksi mereka. Berikut adalah beberapa contoh portfolio proyek pembuatan dan pemasangan kusen aluminium yang telah kami kerjakan di wilayah Tangerang.', '', '2024-10-29', '2024-10-31', '', 'Tangerang', 5, 0, '', '', 0),
-(11, 'Pembuatan dan pemasangan kanopi sliding', 'Pemasangan kanopi sliding semakin diminati sebagai solusi praktis dan estetis untuk melindungi area terbuka seperti teras, balkon, atau garasi. Kanopi ini memberikan kelebihan dalam hal fungsionalitas dan desain yang modern. ', '', '2024-10-10', '2024-10-16', '', 'Tangerang', 2, 0, '', '', 0),
-(12, 'Pembuatan Dan Pemasangan Balkon Kaca Di Tangerang', 'Balkon kaca menjadi pilihan favorit dalam desain hunian modern karena memberikan kesan elegan, luas, dan memaksimalkan pencahayaan alami. Anugrah Aluminium, sebagai spesialis dalam konstruksi bangunan dan aluminium, menghadirkan layanan pembuatan dan pemasangan balkon kaca dengan kualitas dan ketahanan tinggi. ', '', '2024-10-25', '2024-10-31', '', 'Tangerang', 4, 0, '', '', 0),
-(13, 'pemasangan folding gate', 'Folding gate menjadi solusi populer dalam pengamanan dan kenyamanan berbagai jenis bangunan, seperti ruko, gudang, dan rumah tinggal. Sebagai perusahaan spesialis konstruksi aluminium dan besi, Anugrah Aluminium menawarkan jasa pembuatan dan pemasangan folding gate berkualitas tinggi dengan desain yang bisa disesuaikan.', '', '2024-10-29', '2024-10-31', '', 'Tangerang', 4, 0, '', '', 0),
-(14, 'pembuatan dan pemasangan pintu kasa nyamuk', 'Anugrah Aluminium kembali melayani pemasangan pintu kasa nyamuk berkualitas tinggi untuk klien di wilayah Tangerang. Proyek ini dirancang untuk memberikan kenyamanan dan keamanan maksimal dari serangan serangga, tanpa mengurangi sirkulasi udara yang baik di dalam ruangan.', '', '2024-11-03', '2024-11-08', '', 'Tangerang', 4, 0, '', '', 0),
-(15, 'Pemasangan kusen almunium', 'Anugrah Aluminium dipercaya oleh Ibu Nisa di Tangerang untuk membantu renovasi hunian dengan memasang kusen aluminium berkualitas tinggi. Dalam proyek ini, Ibu Nisa menginginkan kusen yang tahan lama, modern, dan sesuai dengan desain interior rumahnya yang bergaya minimalis.', '', '2024-11-01', '2024-11-04', '', 'Tangerang', 5, 0, '', '', 0),
-(16, 'Pemasangan Kanopi Atap kaca', 'Proyek pemasangan kanopi ini dilakukan di rumah Bapak Kholik yang berlokasi di Tangerang. Bapak Kholik memilih kanopi dengan atap kaca tempered, yang tidak hanya menambah nilai estetika rumah tetapi juga memungkinkan pencahayaan alami masuk ke area bawah kanopi. ', '', '2024-11-08', '2024-11-10', '', 'Tangerang', 2, 0, '', '', 0),
-(17, 'Pemasangan kanopi Alderon Plafon Pvc Di Lipo Cendana Vista', 'Pemasangan kanopi merupakan salah satu solusi terbaik untuk memberikan perlindungan ekstra bagi area tertentu di rumah, seperti teras, garasi, atau balkon. Kali ini, kami dari Anugrah Aluminium telah menyelesaikan proyek pemasangan kanopi berbahan Alderon dengan plafon PVC di salah satu kawasan perumahan eksklusif, Lippo Cendana Vista. Proyek ini dirancang untuk memberikan perlindungan maksimal sekaligus menambahkan nilai estetika pada hunian klien kami.', '', '2024-11-21', '2024-11-24', 'Pak Fadel', 'Lipo Cendana Vista, Tangerang', 2, 0, '', '', 0),
-(18, 'Portfolio Pemasangan Kanopi Alderon Plafon PVC di Sumarecon Bogor di Rumah Ibu Roro', 'Pada proyek kali ini, kami ingin berbagi pengalaman mengenai pemasangan kanopi Alderon dengan plafon PVC yang kami lakukan di salah satu rumah di kawasan prestisius Sumarecon Bogor.', '1', '2024-11-01', '2024-12-02', 'IBU RORO', 'SUMARECON BOGOR MAGHONI RESIDENCE', 2, 0, '', '', 0),
-(19, 'PEMASANGAN KANOPI ALDERON PLAFON PVC DI LAUSANE RESIDENCE', 'Ketika berbicara tentang estetika dan fungsi pada hunian modern, pemasangan kanopi menjadi salah satu elemen penting yang tidak bisa diabaikan. ', '1', '2024-12-05', '2024-12-08', '', 'Citra Lausane Residence AA 07/12', 2, 0, '', '', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -453,15 +403,34 @@ CREATE TABLE `ref_projek_images` (
   `id_projek` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `ref_projek_images`
+-- Table structure for table `ref_projek_rab`
 --
 
-INSERT INTO `ref_projek_images` (`id`, `images`, `id_projek`) VALUES
-(59, 'portfolio-2.jpg', 3),
-(60, 'portfolio-3.jpg', 3),
-(61, 'portfolio-4.jpg', 3),
-(62, 'portfolio-5.jpg', 3);
+CREATE TABLE `ref_projek_rab` (
+  `id` int NOT NULL,
+  `id_uraian` int NOT NULL,
+  `spesifikasi_bahan` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `vol` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `satuan` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `harga_satuan` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tot_harga` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `uraian` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ref_projek_uraian`
+--
+
+CREATE TABLE `ref_projek_uraian` (
+  `id` int NOT NULL,
+  `uraian` varchar(160) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `id_projek` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -493,7 +462,7 @@ CREATE TABLE `set_app` (
 --
 
 INSERT INTO `set_app` (`id`, `nama_web`, `tentang`, `notlp`, `email`, `lokasi`, `title`, `map`, `alamat`, `logo`, `favicon`, `site`, `keyword`, `kota`, `provinsi`, `pos`) VALUES
-(1, 'Anugrah Almunium', 'Perusahaan konstruksi bangunan terpercaya yang menyediakan layanan desain interior, bengkel las, dan aluminium. Kami siap membantu mewujudkan proyek Anda dengan hasil berkualitas dan profesional.', '6281906396422', 'Myinfo@anugrahalmunium.com', 'https://maps.app.goo.gl/bHWxM6NxrKbDkdgv8', 'Jasa Konstruksi Bangunan Interior Bengkel Las & Aluminium di Indonesia', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.058538848572!2d106.60483667593675!3d-6.256018861253075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc67c143485b%3A0xeeca2efa0a7c2233!2sJl.%20Raya%20Legok%20-%20Karawaci%20No.87%2C%20Medang%2C%20Kec.%20Pagedangan%2C%20Kabupaten%20Tangerang%2C%20Banten%2015810!5e0!3m2!1sid!2sid!4v1728037738348!5m2!1sid!2sid', 'Jl. Raya Legok Karawaci No 87 Medang Kec. Pagedangan Tangerang', 'logo1728046340.png', 'favicon1728037457.png', 'https://anugrahalmunium.com', 'perusahaan konstruksi bangunan, jasa konstruksi bangunan, desain interior, jasa desain interior, bengkel las, bengkel las aluminium, pemasangan aluminium,jasa kontruksi rumah, jasa bangun rumah, jasa renovasi rumah, jasa renovasi kantor, jasa bengkel las, kontraktor rumah, jasa kontraktor rumah, bengkel las,anugrah alumunium', 'Tangerang', 'Banten', 15859);
+(1, 'GUMILAR BERKAH KONSTRUKSI', 'GUMILAR BERKAH KONSTRUKSI adalah perusahaan profesional yang bergerak di bidang jasa dekorasi  solusi exterior & interior rumah. ', '6285798780809', 'info@gumilarberkahkonstruksi.id', 'https://maps.app.goo.gl/bHWxM6NxrKbDkdgv8', 'Jasa Konstruksi Bangunan, Interior & Bengkel Las Terbaik  di Indonesia', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.058538848572!2d106.60483667593675!3d-6.256018861253075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc67c143485b%3A0xeeca2efa0a7c2233!2sJl.%20Raya%20Legok%20-%20Karawaci%20No.87%2C%20Medang%2C%20Kec.%20Pagedangan%2C%20Kabupaten%20Tangerang%2C%20Banten%2015810!5e0!3m2!1sid!2sid!4v1728037738348!5m2!1sid!2sid', 'KP. Carang Pulang Medang,Pagedangan, Tangerang', 'logo1736750650.png', 'favicon1728037457.png', 'https://gumilarberkahkonstruksi.id', 'perusahaan konstruksi bangunan, jasa konstruksi bangunan, desain interior, jasa desain interior, bengkel las, bengkel las aluminium, pemasangan aluminium,jasa kontruksi rumah, jasa bangun rumah, jasa renovasi rumah, jasa renovasi kantor, jasa bengkel las, kontraktor rumah, jasa kontraktor rumah, bengkel las,anugrah alumunium', 'Tangerang', 'Banten', 15859);
 
 -- --------------------------------------------------------
 
@@ -514,9 +483,9 @@ CREATE TABLE `set_app_medsos` (
 --
 
 INSERT INTO `set_app_medsos` (`id`, `media`, `username`, `link`, `id_app`) VALUES
-(1, 'Facebook', ' Eko Ganis', 'https://www.facebook.com/ekoganis?mibextid=9idTr45qYp7jtedz', 1),
-(2, 'Instagram', ' anugrahalmuniumganis', 'https://www.instagram.com/anugrahalmuniumganis?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzI', 1),
-(3, 'Youtube', ' AnugrahAlmunium', 'www.youtube.com/@AnugrahAlmunium', 1);
+(1, 'Facebook', 'GBK', 'https://www.facebook.com/', 1),
+(2, 'Instagram', 'Gumilarberkahkonstruksi', 'https://www.instagram.com/gumilarberkahkonstruksi?igsh=MXJoYnR2cG9pcHUycw==', 1),
+(3, 'Youtube', 'GBK', 'www.youtube.com/', 1);
 
 -- --------------------------------------------------------
 
@@ -530,18 +499,6 @@ CREATE TABLE `set_plugin` (
   `plugin` text NOT NULL,
   `active` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `set_plugin`
---
-
-INSERT INTO `set_plugin` (`id`, `nama_plugin`, `plugin`, `active`) VALUES
-(1, 'SEARCH CONSOLE', '<meta name=\"google-site-verification\" content=\"Ky5h1f0NA8zpxv9IyV-zxoI58xcJeZa5XuZDWho4CTg\" />', 0),
-(2, 'ANALYTICS GOOGLE', '<!-- Google tag (gtag.js) -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=G-LZEBQ5HVVS\"></script>\r\n<script>\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag(){dataLayer.push(arguments);}\r\n  gtag(\'js\', new Date());\r\n\r\n  gtag(\'config\', \'G-LZEBQ5HVVS\');\r\n</script>', 0),
-(3, 'BING WEB MASTER', '<meta name=\"msvalidate.01\" content=\"656A2F40F3102FF2C39962ECDBFBC322\" />', 0),
-(4, 'GOOGLE ADS', '<!-- Google tag (gtag.js) -->\r\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=AW-16732357494\"></script>\r\n<script>\r\n  window.dataLayer = window.dataLayer || [];\r\n  function gtag(){dataLayer.push(arguments);}\r\n  gtag(\'js\', new Date());\r\n\r\n  gtag(\'config\', \'AW-16732357494\');\r\n</script>', 0),
-(5, 'PINTEREST', '<meta name=\"p:domain_verify\" content=\"711c934c7a78597451e15c243b2fa9f5\"/>', 0),
-(6, 'AHREF', '<meta name=\"ahrefs-site-verification\" content=\"2b1e225dfde9bf8c029d471631ead683fa32e5cc4d646c85ebff8f2e773eee39\">', 0);
 
 -- --------------------------------------------------------
 
@@ -563,9 +520,9 @@ CREATE TABLE `set_slide` (
 --
 
 INSERT INTO `set_slide` (`id`, `title`, `desk`, `gambar`, `link`, `main`) VALUES
-(1, 'Layanan Interior Custom', 'layanan yang menawarkan desain dan pembuatan interior yang disesuaikan dengan kebutuhan, selera, dan ruang yang dimiliki oleh klien.', '1728042764.jpg', '', 1),
-(2, 'Layanan Pembuatan Dan Pemasangan Kanopi', 'layanan yang menyediakan pemasangan berbagai jenis kanopi untuk kebutuhan hunian atau bangunan komersial.', '1728042931.jpg', '', 0),
-(3, 'Layanan Furniture Almunium', ' layanan yang menawarkan desain dan pembuatan Pintu, Jendela Dll. Terbuat Dari Almunium yang disesuaikan dengan kebutuhan, selera.', '1728043104.jpg', '', 0);
+(1, 'Layanan Jasa Sipil', 'Kami Menawarkan Jasa Renovasi dan pembangunan Rumah', '1736667086.jpg', '', 1),
+(2, 'Layanan Pembuatan Dan Pemasangan Kanopi', 'Kami menyediakan pemasangan berbagai jenis kanopi untuk kebutuhan hunian atau bangunan komersial.', '1736667190.jpg', '', 0),
+(3, 'Jasa Interior Custom', 'Kami menawarkan desain dan pembuatan Lemari, Kitchen Set Dll.', '1736667202.jpg', '', 0);
 
 -- --------------------------------------------------------
 
@@ -586,7 +543,7 @@ CREATE TABLE `s_about` (
 --
 
 INSERT INTO `s_about` (`id`, `heading_1`, `heading_2`, `text`, `images`) VALUES
-(1, 'Welcome to Builderz', 'Tentang Kami Anugrah Almunium', 'Anugrah Aluminium adalah perusahaan yang bergerak di bidang konstruksi bangunan, interior, konstruksi las, dan furniture aluminium. Kami berkomitmen untuk menghadirkan solusi konstruksi yang inovatif, tahan lama, dan estetik melalui penggunaan material yang berkualitas tinggi. Dengan pengalaman bertahun-tahun di industri ini, Anugrah Aluminium telah melayani berbagai kebutuhan, mulai dari pemasangan kanopi, jendela, dan pintu aluminium, hingga pembuatan furniture custom yang modern dan fungsional. Keunggulan kami terletak pada pelayanan yang cepat, hasil yang rapi, dan harga yang kompetitif. Kami terus berinovasi untuk memberikan hasil terbaik yang dapat memenuhi keinginan dan harapan pelanggan, menjadikan kami mitra terpercaya dalam proyek konstruksi maupun renovasi rumah dan kantor.', 'images1715078569.jpg');
+(1, 'Welcome To GBK', 'Tentang GUMILAR BERKAH KONSTRUKSI', 'Gumilar Berkah Konstruksi adalah perusahaan konstruksi yang terpercaya dan berpengalaman, yang mengkhususkan diri dalam berbagai layanan untuk memenuhi semua kebutuhan bangunan Anda. Dengan fokus pada kualitas, presisi, dan kepuasan pelanggan, kami menawarkan solusi komprehensif dalam konstruksi bangunan, renovasi, teralis, kanopi besi, gorden, dan desain interior. Tim ahli kami berdedikasi untuk memberikan hasil yang inovatif dan berkelanjutan, baik Anda membangun bangunan baru atau merenovasi ruang yang ada.', 'images1736667247.jpg');
 
 -- --------------------------------------------------------
 
@@ -607,8 +564,10 @@ CREATE TABLE `s_chose_us` (
 --
 
 INSERT INTO `s_chose_us` (`id`, `title`, `deskripsi`, `icon`, `position`) VALUES
-(1, 'Best In Industry', 'Magna sea eos sit dolor ipsum amet lorem diam dolor', 'fa fa-cubes', 'LEFT'),
-(2, 'Award Winning', 'Magna sea eos sit dolor ipsum amet lorem diam dolor', 'fa fa-award', 'RIGHT');
+(1, 'Transparant', 'Dalam mengerjakan jasa konstruksi, perbaikan atau lainnya kami selalu terbuka dan transparan mengenai spesifikasi material yang di gunakan. Kami selalu mengupda', 'fa fa-cubes', 'LEFT'),
+(2, 'Workshop yang Terintegritas', 'Setiap pekerjaan dilakukan oleh team kami sendiri, di mulai desain rumah, pengurusan IMB jika ada, pembangunan serta pembuatan kusen jendela dan pintu aluminium', 'fas fa-award', 'RIGHT'),
+(4, 'Fleksiblelitas', 'Kami memberikan harga yang fleksibel yang bisa disesuaikan dengan anggaran pelanggan. Kami juga selalu berdiskusi dengan pelanggan dalam mendevelop budget dan m', 'fas fa-book-open', 'LEFT'),
+(5, 'Kepercayaan', 'Portpolio pengalaman kami dalam menyediakan jasa konstruksi rumah serta jasa lainnya merupakan benar benar pekerjaan yang telah kami kerjakan dan bisa di cek la', 'fas fa-user-shield', 'RIGHT');
 
 -- --------------------------------------------------------
 
@@ -628,9 +587,9 @@ CREATE TABLE `s_feature` (
 --
 
 INSERT INTO `s_feature` (`id`, `title`, `deskripsi`, `icon`) VALUES
-(1, 'Expert Worker', 'Lorem ipsum dolor sit amet elit. Phasus nec pretim velit non', 'flaticon-worker'),
-(2, 'Quality Work', 'Lorem ipsum dolor sit amet elit. Phasus nec pretim velit non', 'flaticon-building '),
-(3, '24/7 Support', 'Lorem ipsum dolor sit amet elit. Phasus nec pretim velit non', 'flaticon-call');
+(1, 'Pekerja Ahli', 'Di dukung oleh para pekerja ahli dan profesional.', 'flaticon-worker'),
+(2, 'Pekerjaan Berkualitas', 'hasil kerja yang memenuhi standar tinggi, dilakukan dengan teliti, efisien, dan bertanggung jawab.', 'flaticon-building '),
+(3, '24/7 Support', 'Layanan 24 jam', 'flaticon-call');
 
 -- --------------------------------------------------------
 
@@ -643,21 +602,14 @@ CREATE TABLE `s_portfolio` (
   `title` varchar(160) NOT NULL,
   `body` text NOT NULL,
   `foto` varchar(160) NOT NULL,
-  `meta_title` varchar(160) NOT NULL,
   `meta_deskripsi` varchar(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `meta_keyword` text NOT NULL,
   `projek` int DEFAULT NULL,
   `client` int DEFAULT NULL,
   `category` int DEFAULT NULL,
-  `slug` text NOT NULL
+  `slug` text NOT NULL,
+  `judul` varchar(190) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Dumping data for table `s_portfolio`
---
-
-INSERT INTO `s_portfolio` (`id`, `title`, `body`, `foto`, `meta_title`, `meta_deskripsi`, `meta_keyword`, `projek`, `client`, `category`, `slug`) VALUES
-(1, 'Solar Power Ltd Project', 'Solar Power Ltd Project\r\nSadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.\r\n\r\nVoluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.\r\n\r\nThe Challenge in Work\r\nVoluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.', 'detail.jpg', 'Solar Power Ltd Project', 'Sadipscing labore amet rebum est et justo gubergren. ', 'dfdf,jfhjhjh', 3, NULL, NULL, 'Solar-Power-Ltd-Project');
 
 -- --------------------------------------------------------
 
@@ -682,7 +634,72 @@ CREATE TABLE `s_service` (
 --
 
 INSERT INTO `s_service` (`id`, `title`, `body`, `images`, `slug`, `seo_title`, `seo_deskripsi`, `seo_keyword`, `file`) VALUES
-(1, 'Building Construction', 'Sadipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd, stet amet magna accusam consetetur eirmod. Kasd accusam sit ipsum sadipscing et at at sanctus et. Ipsum sit gubergren dolores et, consetetur justo invidunt at et aliquyam ut et vero clita. Diam sea sea no sed dolores diam nonumy, gubergren sit stet no diam kasd vero.\r\n\r\nVoluptua est takimata stet invidunt sed rebum nonumy stet, clita aliquyam dolores vero stet consetetur elitr takimata rebum sanctus. Sit sed accusam stet sit nonumy kasd diam dolores, sanctus lorem kasd duo dolor dolor vero sit et. Labore ipsum duo sanctus amet eos et. Consetetur no sed et aliquyam ipsum justo et, clita lorem sit vero amet amet est dolor elitr, stet et no diam sit. Dolor erat justo dolore sit invidunt.', 'blog-1.jpg', 'Building-Construction', 'Building Construction', 'adipscing labore amet rebum est et justo gubergren. Et eirmod ipsum sit diam ut magna lorem. Nonumy vero labore lorem sanctus rebum et lorem magna kasd', 'Construction', 'Y078561882.pdf');
+(4, 'Jasa Konstruksi Bangunan', '<p data-pm-slice=\"1 1 []\">Membangun rumah adalah impian banyak orang, tetapi prosesnya sering kali terasa rumit dan menantang. jasa konstruksi bangunan, mulai dari cara membangun rumah sendiri hingga memilih kontraktor bangunan terpercaya. Dengan panduan ini, Anda akan lebih siap menghadapi tantangan membangun rumah, sekaligus memastikan hasilnya sesuai harapan. Yuk, kita mulai!</p><div></div><h2>Cara Membangun Rumah Sendiri</h2><p>Membangun rumah sendiri bisa menjadi pengalaman yang sangat memuaskan, tetapi memerlukan perencanaan matang. Berikut adalah langkah-langkah utama yang perlu Anda perhatikan:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Rencanakan dengan Detail</strong>\r\nTentukan kebutuhan dan keinginan Anda, termasuk jumlah kamar, luas bangunan, dan desain rumah minimalis yang diinginkan.</p></li><li><p><strong>Anggarkan Biaya</strong>\r\nHitung biaya bangun rumah per meter untuk mengetahui total anggaran yang diperlukan. Jangan lupa menyisihkan dana cadangan untuk biaya tak terduga.</p></li><li><p><strong>Perizinan Bangunan</strong>\r\nSebelum memulai konstruksi, pastikan Anda memiliki IMB (Izin Mendirikan Bangunan) sesuai peraturan di daerah Anda. Ini sangat penting untuk menghindari masalah hukum di kemudian hari.</p></li><li><p><strong>Pilih Lokasi Strategis</strong>\r\nLokasi rumah sangat berpengaruh pada kenyamanan dan nilai properti. Pastikan lokasi memiliki akses yang mudah ke fasilitas umum.</p></li><li><p><strong>Beli Bahan Bangunan</strong>\r\nBelanja bahan bangunan berkualitas dengan harga kompetitif. Anda bisa membandingkan harga di toko fisik maupun online untuk mendapatkan penawaran terbaik.</p></li><li><p><strong>Gunakan Jasa Tukang Bangunan</strong>\r\nJika Anda tidak memiliki keterampilan konstruksi, menyewa tukang bangunan berpengalaman adalah solusi terbaik. Cari alamat tukang bangunan yang terpercaya di sekitar Anda.</p></li></ol><div></div><h2>Biaya Bangun Rumah per Meter</h2><p>Salah satu aspek penting dalam membangun rumah adalah memahami biaya per meter persegi. Biaya ini dipengaruhi oleh:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Jenis Material</strong>\r\nMaterial premium seperti marmer atau kayu jati akan lebih mahal dibandingkan bahan standar seperti keramik biasa.</p></li><li><p><strong>Desain Rumah</strong>\r\nRumah dengan desain minimalis cenderung lebih hemat biaya dibandingkan desain mewah.</p></li><li><p><strong>Lokasi</strong>\r\nBiaya bangun rumah di kota besar seperti Jakarta biasanya lebih tinggi karena harga material dan jasa konstruksi lebih mahal.</p></li><li><p><strong>Jasa Konstruksi</strong>\r\nJika Anda menggunakan kontraktor bangunan terpercaya, pastikan mendapatkan penawaran harga yang transparan dan sesuai anggaran.</p></li></ol><p>Tips: Gunakan kalkulator online untuk menghitung biaya bangun rumah per meter sesuai spesifikasi Anda.</p><div></div><h2>Perizinan Bangunan</h2><p>Perizinan adalah aspek krusial yang sering terlupakan. Berikut dokumen yang biasanya diperlukan:</p><ul data-spread=\"false\"><li><p><strong>Izin Mendirikan Bangunan (IMB):</strong> Wajib untuk semua jenis konstruksi.</p></li><li><p><strong>Surat Kepemilikan Tanah:</strong> Bukti legalitas tanah tempat rumah akan dibangun.</p></li><li><p><strong>Rencana Anggaran Biaya (RAB):</strong> Dokumen ini sering diminta oleh pihak berwenang.</p></li></ul><p>Proses pengurusan perizinan bisa memakan waktu beberapa minggu hingga bulan, jadi pastikan Anda mempersiapkannya sejak awal.</p><div></div><h2>Desain Rumah Minimalis</h2><p>Desain rumah minimalis sangat populer karena kesederhanaannya yang modern. Berikut beberapa tips mendesain rumah minimalis:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Gunakan Ruang Secara Efisien</strong>\r\nHindari pemborosan ruang dengan memilih furnitur multifungsi.</p></li><li><p><strong>Pilih Warna Netral</strong>\r\nWarna putih, abu-abu, atau beige memberikan kesan luas dan bersih.</p></li><li><p><strong>Minimalkan Dekorasi</strong>\r\nFokus pada elemen fungsional agar rumah tetap terlihat rapi.</p></li></ol><div></div><h2>Memilih Kontraktor Bangunan Terpercaya</h2><p>Untuk mendapatkan hasil yang memuaskan, pilih kontraktor bangunan terpercaya dengan langkah berikut:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Cek Portofolio</strong>\r\nLihat proyek sebelumnya untuk menilai kualitas kerja mereka.</p></li><li><p><strong>Bandingkan Harga</strong>\r\nJangan langsung memilih kontraktor termurah; pastikan kualitas sesuai.</p></li><li><p><strong>Baca Ulasan</strong>\r\nCari tahu pengalaman pelanggan lain melalui ulasan online.</p></li><li><p><strong>Periksa Legalitas</strong>\r\nPastikan kontraktor memiliki izin usaha yang sah.</p></li></ol><p>Rekomendasi: Jasa kontraktor Jakarta memiliki reputasi baik dan banyak pilihan.</p><div></div><h2>Jasa Renovasi Rumah</h2><p>Jika Anda ingin merenovasi rumah, pertimbangkan hal berikut:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Evaluasi Kebutuhan Renovasi</strong>\r\nApakah hanya membutuhkan cat ulang, atau ada struktur yang perlu diperbaiki?</p></li><li><p><strong>Rencanakan Anggaran</strong>\r\nRenovasi kecil mungkin cukup murah, tetapi renovasi besar seperti menambah lantai bisa mahal.</p></li><li><p><strong>Gunakan Tukang Cat Rumah Profesional</strong>\r\nPengecatan adalah langkah penting untuk mempercantik rumah. Tukang cat rumah yang berpengalaman akan memberikan hasil maksimal.</p></li></ol><div></div><h2>Sewa Alat Berat dan Beli Bahan Bangunan</h2><p>Jika Anda memutuskan untuk membangun sendiri tanpa kontraktor, pertimbangkan menyewa alat berat seperti ekskavator atau mixer beton. Ini akan mempermudah pekerjaan besar seperti penggalian pondasi. Selain itu:</p><ul data-spread=\"false\"><li><p><strong>Bandingkan Harga:</strong> Periksa harga sewa alat berat dari beberapa penyedia.</p></li><li><p><strong>Cari Supplier Terpercaya:</strong> Pastikan bahan bangunan berkualitas tinggi agar rumah Anda kokoh dan tahan lama.</p></li></ul><div></div><h2>Perusahaan Konstruksi Terbesar di Indonesia</h2><p>Untuk proyek besar, bekerja sama dengan perusahaan konstruksi terbesar bisa menjadi pilihan terbaik. Mereka memiliki pengalaman dan sumber daya yang memadai untuk menangani proyek skala besar.</p><p>Membangun rumah impian bukanlah tugas yang mudah, tetapi dengan perencanaan yang tepat dan bantuan jasa konstruksi bangunan terpercaya, Anda bisa mewujudkannya tanpa stres. Pastikan Anda memahami cara membangun rumah sendiri, menghitung biaya bangun rumah per meter, dan mengurus perizinan dengan benar.</p><p>Jika Anda masih bingung, jangan ragu untuk berkonsultasi dengan kontraktor atau perusahaan konstruksi terpercaya. Selamat membangun rumah impian Anda!</p>', 'jasa-konstruksi-bangunan.jpg', 'jasa-konstruksi-bangunan', 'Jasa Konstruksi Bangunan: Panduan Lengkap Membangun Rumah Impian Anda', 'Membangun rumah sendiri bisa menjadi pengalaman yang sangat memuaskan, tetapi memerlukan perencanaan matang', 'cara membangun rumah sendiri,\r\nbiaya bangun rumah per meter,\r\nperizinan bangunan,\r\ndesain rumah minimalis,\r\nkontraktor bangunan terpercaya,jasa kontraktor jakarta,\r\nperusahaan konstruksi terbesar,\r\nalamat tukang bangunan,sewa', 'images1736745477.jpg'),
+(5, 'Jasa Pasang Kanopi', '<h3 data-pm-slice=\"1 1 []\">Jasa Pasang Kanopi Sejabodetabek</h3><p>Kanopi merupakan salah satu elemen penting untuk menambah estetika sekaligus memberikan fungsi perlindungan pada rumah atau bangunan. Di wilayah Sejabodetabek, kebutuhan akan jasa pasang kanopi terus meningkat seiring dengan perkembangan properti dan urbanisasi. Artikel ini akan membahas berbagai aspek yang perlu Anda ketahui tentang jasa pasang kanopi, mulai dari bahan, model, harga, hingga tips memilih penyedia jasa terbaik.</p><div></div><h4>Kenapa Harus Menggunakan Jasa Pasang Kanopi Profesional?</h4><p>Menggunakan jasa pasang kanopi profesional memberikan banyak keuntungan, terutama dari segi hasil yang rapi dan tahan lama. Berikut beberapa alasan kenapa Anda perlu mempertimbangkan jasa tukang kanopi berpengalaman di Jakarta dan sekitarnya:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Keahlian dan Pengalaman</strong>\r\nTukang kanopi berpengalaman memiliki kemampuan untuk menangani berbagai jenis material, seperti baja ringan, polycarbonate, hingga kaca tempered. Mereka juga mampu menyesuaikan pemasangan dengan desain rumah Anda.</p></li><li><p><strong>Efisiensi Waktu</strong>\r\nDengan tenaga profesional, proses pemasangan kanopi dapat selesai lebih cepat tanpa mengorbankan kualitas.</p></li><li><p><strong>Keamanan</strong>\r\nTukang yang berpengalaman memahami standar keamanan dalam pemasangan, sehingga risiko kerusakan atau kecelakaan dapat diminimalkan.</p></li></ol><div></div><h4>Jenis-Jenis Kanopi yang Populer</h4><p>Berikut adalah beberapa jenis kanopi yang sering digunakan di wilayah Sejabodetabek:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Kanopi Baja Ringan</strong>\r\nKanopi baja ringan menjadi pilihan favorit karena ringan, tahan karat, dan mudah dipasang. Tidak heran jika banyak yang mencari <em>jasa pasang kanopi baja ringan murah</em>.</p></li><li><p><strong>Kanopi Polycarbonate</strong>\r\nBahan polycarbonate dikenal tahan lama, transparan, dan mampu meredam panas matahari. Harga kanopi polycarbonate per meter biasanya cukup terjangkau, tergantung kualitas materialnya.</p></li><li><p><strong>Kanopi Kaca</strong>\r\nKanopi kaca memberikan kesan modern dan elegan. Namun, pemasangannya memerlukan keahlian khusus untuk memastikan keamanan.</p></li><li><p><strong>Kanopi Minimalis Modern</strong>\r\nModel kanopi minimalis modern sangat cocok untuk hunian dengan konsep kontemporer. Desainnya yang sederhana namun stylish menjadi daya tarik tersendiri.</p></li></ol><div></div><h4>Harga Kanopi Polycarbonate per Meter di Sejabodetabek</h4><p>Harga kanopi polycarbonate per meter bervariasi tergantung jenis polycarbonate yang digunakan. Berikut gambaran umum harga:</p><ul data-spread=\"false\"><li><p>Polycarbonate standar: Rp150.000 – Rp250.000 per meter persegi.</p></li><li><p>Polycarbonate premium: Rp300.000 – Rp500.000 per meter persegi.</p></li></ul><p>Harga tersebut belum termasuk biaya pemasangan, yang biasanya berkisar antara Rp100.000 – Rp200.000 per meter persegi. Sebaiknya konsultasikan kebutuhan Anda dengan penyedia jasa untuk mendapatkan penawaran terbaik.</p><div></div><h4>Model Kanopi Minimalis Modern yang Sedang Tren</h4><p>Model kanopi minimalis modern terus berkembang sesuai dengan tren desain rumah. Berikut beberapa inspirasi model yang bisa Anda pilih:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Kanopi Flat Roof</strong>\r\nDesain atap datar memberikan kesan simpel dan cocok untuk rumah bergaya minimalis.</p></li><li><p><strong>Kanopi Lengkung</strong>\r\nBentuk lengkung menambah kesan dinamis pada hunian Anda.</p></li><li><p><strong>Kanopi Kombinasi Kayu dan Baja</strong>\r\nKombinasi bahan ini memberikan kesan hangat namun tetap modern.</p></li></ol><div></div><h4>Cara Memasang Kanopi Sendiri</h4><p>Jika Anda memiliki keahlian dasar dalam konstruksi, memasang kanopi sendiri bisa menjadi alternatif untuk menghemat biaya. Berikut langkah-langkahnya:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Persiapkan Material dan Alat</strong>\r\nPastikan Anda memiliki semua material seperti baja ringan, polycarbonate, serta alat seperti bor, obeng, dan penggaris.</p></li><li><p><strong>Ukur Lokasi Pemasangan</strong>\r\nUkur dengan teliti area yang akan dipasang kanopi untuk memastikan ukuran material sesuai.</p></li><li><p><strong>Pasang Rangka Baja Ringan</strong>\r\nMulailah dengan memasang rangka baja ringan sebagai kerangka utama kanopi.</p></li><li><p><strong>Pasang Penutup Atap</strong>\r\nSetelah rangka terpasang, lanjutkan dengan memasang bahan penutup seperti polycarbonate atau kaca.</p></li><li><p><strong>Periksa Kestabilan</strong>\r\nPastikan semua bagian terpasang dengan kuat dan stabil sebelum penggunaan.</p></li></ol><p>Meskipun memasang kanopi sendiri bisa dilakukan, hasilnya mungkin tidak seoptimal jika dikerjakan oleh tukang berpengalaman.</p><div></div><h4>Tips Memilih Jasa Pasang Kanopi Terbaik di Sejabodetabek</h4><p>Agar mendapatkan hasil yang memuaskan, berikut tips memilih jasa pasang kanopi terbaik:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Cek Portofolio</strong>\r\nPastikan penyedia jasa memiliki portofolio pekerjaan sebelumnya untuk memastikan kualitas.</p></li><li><p><strong>Bandingkan Harga</strong>\r\nJangan ragu untuk meminta penawaran dari beberapa penyedia jasa agar Anda mendapatkan harga yang kompetitif.</p></li><li><p><strong>Lihat Ulasan dan Rekomendasi</strong>\r\nCari tahu ulasan dari pelanggan sebelumnya. Ulasan positif bisa menjadi indikator kualitas pelayanan.</p></li><li><p><strong>Garansi Pekerjaan</strong>\r\nPilih penyedia jasa yang memberikan garansi untuk memastikan Anda mendapatkan hasil terbaik.</p></li></ol><div></div><p>Dengan memilih jasa pasang kanopi yang tepat, Anda bisa mendapatkan kanopi berkualitas yang sesuai dengan kebutuhan dan anggaran. Jadi, tunggu apa lagi? Segera hubungi tukang kanopi berpengalaman di Jakarta atau wilayah Sejabodetabek lainnya untuk mempercantik hunian Anda!</p><p>Semoga informasi ini bermanfaat untuk Anda. Jika ada pertanyaan lebih lanjut, jangan ragu untuk berkonsultasi dengan ahli kanopi terdekat!</p>', 'jasa-pasang-kanopi-sejabodetabek.jpg', 'jasa-pasang-kanopi', 'Jasa Pasang Kanopi Sejabodetabek Terbaik', 'Menggunakan jasa pasang kanopi profesional memberikan banyak keuntungan, terutama dari segi hasil yang rapi dan tahan lama.', 'Jasa pasang kanopi baja ringan murah,Tukang kanopi berpengalaman di Jakarta,Harga kanopi polycarbonate per meter,Model kanopi minimalis modern,Cara memasang kanopi sendiri', 'images1736746294.jpg'),
+(6, 'Jasa Interior Custom', '<p><span style=\"font-size: 1.07rem; font-weight: var(--bs-body-font-weight); text-align: var(--bs-body-text-align);\">Mencari jasa desain interior yang terbaik memang bukan hal mudah, apalagi dengan banyaknya pilihan yang tersedia di kawasan Sejabodetabek. Dari desain minimalis modern hingga kebutuhan custom seperti kitchen set atau sofa, memilih jasa interior yang tepat bisa menjadi tantangan tersendiri. Artikel ini akan membahas segala hal yang Anda perlu ketahui, mulai dari tips memilih jasa desain interior, harga, hingga inspirasi gaya desain yang populer.</span></p><h2>Pentingnya Jasa Desain Interior untuk Rumah Anda</h2><p>Desain interior bukan sekadar tentang estetika, tetapi juga tentang menciptakan ruang yang fungsional, nyaman, dan sesuai dengan kebutuhan penghuninya. Berikut beberapa alasan mengapa jasa desain interior sangat penting:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Efisiensi Ruang</strong>\r\nDengan bantuan profesional, setiap sudut rumah dapat dimaksimalkan penggunaannya.</p></li><li><p><strong>Konsultasi Profesional</strong>\r\nAnda mendapatkan saran dari ahli yang paham tentang gaya, bahan, dan teknik terbaik.</p></li><li><p><strong>Investasi Jangka Panjang</strong>\r\nDesain yang baik meningkatkan nilai properti Anda.</p></li></ol><h2>Perbedaan Desain Interior dan Arsitektur</h2><p>Banyak orang seringkali bingung membedakan desain interior dan arsitektur. Secara sederhana, arsitektur fokus pada struktur bangunan, sementara desain interior berfokus pada tata letak, dekorasi, dan fungsi ruang di dalamnya. Keduanya saling melengkapi untuk menciptakan rumah yang sempurna.</p><h3>Tugas Utama Desain Interior:</h3><ul data-spread=\"false\"><li><p>Memilih furnitur dan dekorasi.</p></li><li><p>Mengatur pencahayaan.</p></li><li><p>Menentukan warna dan material yang sesuai.</p></li></ul><h3>Tugas Utama Arsitektur:</h3><ul data-spread=\"false\"><li><p>Mendesain struktur bangunan.</p></li><li><p>Memastikan keamanan dan kekokohan bangunan.</p></li></ul><h2>Tips Memilih Jasa Desain Interior</h2><p>Agar Anda tidak salah pilih, berikut beberapa tips untuk memilih jasa desain interior yang tepat:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Cek Portofolio</strong>\r\nPastikan Anda melihat hasil kerja sebelumnya.</p></li><li><p><strong>Sesuaikan Budget</strong>\r\nDiskusikan anggaran Anda sejak awal.</p></li><li><p><strong>Cari Referensi</strong>\r\nTanyakan rekomendasi dari teman atau keluarga.</p></li><li><p><strong>Lihat Review Klien</strong>\r\nUlasan dari klien sebelumnya bisa memberi gambaran kualitas layanan.</p></li><li><p><strong>Konsultasi Awal</strong>\r\nBanyak penyedia jasa menawarkan konsultasi desain interior gratis. Manfaatkan kesempatan ini untuk mengenal tim mereka.</p></li></ol><h2>Gaya Desain Interior Populer</h2><p>Di Sejabodetabek, beberapa gaya desain sangat digemari. Berikut beberapa di antaranya:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Minimalis Modern</strong>\r\nGaya ini menekankan kesederhanaan dengan furnitur yang fungsional dan warna netral.</p></li><li><p><strong>Skandinavia</strong>\r\nIdentik dengan warna putih, kayu alami, dan pencahayaan yang maksimal.</p></li><li><p><strong>Industrial</strong>\r\nMenampilkan elemen mentah seperti beton, logam, dan kayu kasar.</p></li><li><p><strong>Tropis</strong>\r\nCocok untuk iklim Indonesia, dengan banyak elemen alami seperti bambu dan rotan.</p></li></ol><h2>Inspirasi Desain Interior Rumah</h2><p>Berikut beberapa ide yang bisa menjadi inspirasi untuk rumah Anda:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Ruang Tamu Nyaman</strong></p><ul data-spread=\"false\"><li><p>Gunakan sofa custom untuk menyesuaikan ukuran ruang.</p></li><li><p>Tambahkan aksen karpet dan cushion berwarna cerah.</p></li></ul></li><li><p><strong>Dapur Modern Minimalis</strong></p><ul data-spread=\"false\"><li><p>Pasang kitchen set dengan finishing glossy.</p></li><li><p>Gunakan kabinet dengan sistem soft close untuk kesan mewah.</p></li></ul></li><li><p><strong>Kamar Tidur Elegan</strong></p><ul data-spread=\"false\"><li><p>Pilih lemari pakaian custom yang sesuai kebutuhan.</p></li><li><p>Tambahkan lampu gantung untuk suasana hangat.</p></li></ul></li><li><p><strong>Ruang Kerja di Rumah</strong></p><ul data-spread=\"false\"><li><p>Gunakan partisi ruangan untuk menciptakan ruang kerja pribadi.</p></li><li><p>Tambahkan rak buku custom untuk menambah kesan profesional.</p></li></ul></li></ol><h2>Harga Jasa Desain Interior dan Layanan Tambahan</h2><p>Harga jasa desain interior rumah bervariasi tergantung pada kebutuhan dan skala proyek. Berikut perkiraan harga untuk beberapa layanan:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Jasa Desain Interior Rumah</strong></p><ul data-spread=\"false\"><li><p>Mulai dari Rp150.000 per meter persegi untuk desain minimalis.</p></li></ul></li><li><p><strong>Harga Pasang Kitchen Set</strong></p><ul data-spread=\"false\"><li><p>Mulai dari Rp3 juta per meter lari.</p></li></ul></li><li><p><strong>Jasa Pembuatan Lemari Pakaian</strong></p><ul data-spread=\"false\"><li><p>Mulai dari Rp2,5 juta per meter persegi.</p></li></ul></li><li><p><strong>Jasa Pembuatan Sofa Custom</strong></p><ul data-spread=\"false\"><li><p>Mulai dari Rp5 juta per unit tergantung desain.</p></li></ul></li><li><p><strong>Jasa Pembuatan Partisi Ruangan</strong></p><ul data-spread=\"false\"><li><p>Mulai dari Rp1,5 juta per meter persegi.</p></li></ul></li></ol><h2>Keunggulan Jasa Desain Interior Online</h2><p>Dengan teknologi, kini Anda bisa berkonsultasi dengan jasa desain interior online. Keunggulannya meliputi:</p><ul data-spread=\"false\"><li><p>Hemat waktu, karena konsultasi bisa dilakukan dari mana saja.</p></li><li><p>Proses lebih cepat, karena desain bisa langsung dikirim dalam format digital.</p></li><li><p>Biaya lebih murah dibandingkan layanan tradisional.</p></li></ul><h2>Bahan-Bahan yang Digunakan dalam Desain Interior</h2><p>Pemilihan bahan sangat penting dalam desain interior. Berikut bahan yang sering digunakan:</p><ol data-spread=\"true\" start=\"1\"><li><p><strong>Kayu Solid</strong>\r\nUntuk furnitur berkualitas tinggi.</p></li><li><p><strong>MDF (Medium Density Fiberboard)</strong>\r\nPilihan ekonomis untuk kitchen set atau lemari.</p></li><li><p><strong>Kaca</strong>\r\nMenambah kesan modern dan luas pada ruangan.</p></li><li><p><strong>Logam</strong>\r\nDigunakan untuk elemen industrial.</p></li><li><p><strong>Tekstil</strong>\r\nSeperti kain sofa, tirai, atau karpet untuk sentuhan akhir.</p></li></ol><h2>Kontraktor Interior Rumah Terdekat di Sejabodetabek</h2><p>Jika Anda membutuhkan jasa desain interior terdekat, banyak kontraktor di Sejabodetabek yang menawarkan layanan lengkap, mulai dari konsultasi hingga instalasi. Beberapa kontraktor bahkan memberikan penawaran jasa desain interior yang fleksibel sesuai anggaran Anda.</p><div></div><p><span>Dengan berbagai informasi ini, Anda kini memiliki panduan lengkap untuk menemukan jasa interior custom terbaik di Sejabodetabek. Jangan lupa untuk memilih jasa yang sesuai kebutuhan dan anggaran Anda. Selamat berkreasi dengan ruang impian Anda!</span></p>', 'jasa-interior-custom.jpg', 'jasa-interior-custom', 'Jasa Interior Custom Terbaik Sejabodetabek', 'Mencari jasa desain interior yang terbaik memang bukan hal mudah, apalagi dengan banyaknya pilihan yang tersedia di kawasan Sejabodetabek. ', 'jasa desain interior rumah,\r\nharga jasa desain interior,\r\ntips memilih jasa desain interior,\r\nperbedaan desain interior dan arsitektur,\r\n\"pentingnya jasa desain interior\",\r\ncara memilih jasa desain interior yang baik,\r\ndesain', 'images1736747600.jpg'),
+(7, 'Jasa Pasang Teralis', '<p>Menciptakan keamanan di rumah adalah prioritas utama bagi setiap orang. Salah satu langkah yang dapat Anda ambil untuk menjaga rumah Anda tetap aman adalah dengan memasang teralis pada jendela dan pintu. Teralis bukan hanya berfungsi sebagai penghalang fisik untuk mencegah pencurian, tetapi juga memberi rasa nyaman dan aman kepada penghuni rumah. Dalam artikel ini, kita akan membahas berbagai hal terkait teralis, mulai dari pengertian, jenis-jenis, bahan terbaik, harga, cara merawatnya, hingga jasa pasang teralis yang dapat Anda pertimbangkan.</p><h3><strong>Apa Itu Teralis?</strong></h3><p>Teralis adalah struktur pelindung yang terbuat dari besi, baja, atau bahan lainnya yang dipasang di jendela, pintu, atau ventilasi rumah untuk meningkatkan tingkat keamanan. Teralis dirancang sedemikian rupa agar sulit untuk dibobol oleh orang yang tidak bertanggung jawab. Selain fungsi keamanan, teralis juga dapat menambah estetika rumah, tergantung pada desain dan bahan yang digunakan.</p><h3><strong>Jenis-Jenis Teralis</strong></h3><ol><li><p><strong>Teralis Jendela Minimalis</strong>\r\nTeralis jenis ini cocok untuk Anda yang menginginkan desain yang simpel namun tetap aman. Teralis jendela minimalis biasanya memiliki garis-garis lurus dengan desain yang tidak terlalu rumit, memberikan kesan modern dan bersih.</p></li><li><p><strong>Teralis Jendela Klasik</strong>\r\nBagi Anda yang menyukai tampilan klasik dan elegan, teralis dengan desain ukiran atau lengkungan bisa menjadi pilihan. Teralis jenis ini cocok untuk rumah dengan gaya arsitektur tradisional atau vintage.</p></li><li><p><strong>Teralis Baja Ringan</strong>\r\nTeralis dari baja ringan ini sangat populer karena harganya yang terjangkau dan kekuatan yang cukup baik. Baja ringan tahan terhadap cuaca dan memiliki daya tahan yang lama.</p></li><li><p><strong>Teralis Besi Tempa</strong>\r\nTeralis besi tempa sering dipilih karena kekuatannya yang sangat tinggi dan desainnya yang unik. Besi tempa memberikan tampilan yang lebih mewah dan artistik, cocok untuk rumah bergaya klasik atau mewah.</p></li><li><p><strong>Teralis Sliding</strong>\r\nTeralis sliding adalah pilihan yang tepat untuk rumah dengan ruang terbatas. Teralis jenis ini dapat digeser sehingga tidak mengganggu mobilitas di sekitar jendela atau pintu.</p></li></ol><h3><strong>Bahan Teralis yang Bagus</strong></h3><p>Pemilihan bahan teralis sangat penting untuk memastikan kekuatan dan ketahanan. Berikut adalah beberapa bahan terbaik yang sering digunakan untuk membuat teralis:</p><ol><li><p><strong>Besi Tempa</strong>\r\nTeralis besi tempa adalah bahan yang kuat dan tahan lama. Meskipun harganya sedikit lebih tinggi, namun daya tahannya membuatnya menjadi pilihan utama bagi banyak orang.</p></li><li><p><strong>Baja Ringan</strong>\r\nBaja ringan menjadi pilihan populer karena memiliki bobot yang lebih ringan namun tetap kokoh. Baja ringan juga tahan karat, menjadikannya pilihan yang bagus untuk wilayah dengan kelembapan tinggi.</p></li><li><p><strong>Stainless Steel</strong>\r\nStainless steel dikenal karena ketahanannya terhadap korosi dan karat. Bahan ini cocok untuk daerah pesisir atau tempat yang sering terpapar air hujan. Meskipun lebih mahal, kualitas dan ketahanannya membuatnya sangat layak dipertimbangkan.</p></li><li><p><strong>Aluminium</strong>\r\nAluminium adalah bahan yang ringan, tahan terhadap cuaca, dan mudah untuk diproses. Teralis aluminium cocok untuk Anda yang mencari material dengan harga lebih terjangkau namun tetap kuat dan awet.</p></li></ol><h3><strong>Harga Teralis Per Meter</strong></h3><p>Harga teralis bisa bervariasi tergantung pada bahan, desain, dan ukuran yang Anda pilih. Berikut adalah perkiraan harga teralis per meter untuk beberapa bahan populer:</p><ul><li><strong>Besi Tempa</strong>: Rp 300.000 – Rp 500.000 per meter</li><li><strong>Baja Ringan</strong>: Rp 150.000 – Rp 250.000 per meter</li><li><strong>Stainless Steel</strong>: Rp 400.000 – Rp 600.000 per meter</li><li><strong>Aluminium</strong>: Rp 200.000 – Rp 350.000 per meter</li></ul><p>Harga ini bisa berbeda-beda tergantung pada lokasi, pemasok, dan desain yang Anda pilih.</p><h3><strong>Cara Merawat Teralis Besi</strong></h3><p>Teralis besi, meskipun kuat dan tahan lama, tetap membutuhkan perawatan agar tetap awet dan berfungsi dengan baik. Berikut adalah beberapa cara merawat teralis besi:</p><ol><li><p><strong>Bersihkan secara Rutin</strong>\r\nKotoran, debu, dan polusi udara bisa menempel pada teralis besi. Cuci teralis secara rutin dengan air sabun hangat dan sikat lembut untuk membersihkannya.</p></li><li><p><strong>Cek Kondisi Cat</strong>\r\nCat pada teralis besi bisa memudar atau terkelupas akibat cuaca. Periksa secara berkala dan jika diperlukan, lakukan pengecatan ulang untuk melindungi besi dari karat.</p></li><li><p><strong>Lindungi dari Karat</strong>\r\nUntuk mencegah karat, pastikan teralis besi selalu dalam keadaan kering. Anda juga bisa menggunakan pelindung anti-karat untuk menjaga kualitas besi.</p></li></ol><h3><strong>Jasa Pembuatan Teralis dan Tukang Las Teralis Terdekat</strong></h3><p>Jika Anda tidak ingin repot membuat teralis sendiri, Anda bisa menggunakan jasa pembuatan teralis yang banyak tersedia di berbagai daerah. Banyak tukang las teralis terdekat yang siap membantu Anda membuat dan memasang teralis dengan desain yang sesuai kebutuhan. Dengan menggunakan jasa profesional, Anda dapat memastikan kualitas teralis yang kuat, aman, dan tahan lama.</p><h3><strong>Harga Pasang Teralis Jendela</strong></h3><p>Harga untuk jasa pasang teralis jendela biasanya dihitung berdasarkan luas dan jenis teralis yang dipilih. Berikut adalah perkiraan harga pasang teralis jendela:</p><ul><li><strong>Teralis Besi Tempa</strong>: Rp 500.000 – Rp 1.000.000 per jendela</li><li><strong>Teralis Baja Ringan</strong>: Rp 250.000 – Rp 400.000 per jendela</li><li><strong>Teralis Stainless Steel</strong>: Rp 600.000 – Rp 1.200.000 per jendela</li></ul><p>Harga ini juga dapat bervariasi tergantung pada lokasi dan tingkat kesulitan pemasangan.</p><h3><strong>Toko Teralis Online dan Website Jual Teralis</strong></h3><p>Untuk mempermudah pencarian, Anda bisa membeli teralis secara online melalui berbagai toko teralis online. Beberapa website jual teralis menyediakan berbagai pilihan bahan, desain, dan harga yang bisa Anda sesuaikan dengan kebutuhan dan anggaran. Pastikan Anda memilih website yang terpercaya dan menyediakan produk berkualitas.</p><h3><strong>Jasa Pasang Teralis di Jakarta</strong></h3><p>Bagi Anda yang berada di Jakarta, ada banyak pilihan jasa pasang teralis yang menawarkan berbagai jenis teralis sesuai kebutuhan. Anda bisa mencari perusahaan teralis terpercaya yang sudah berpengalaman dalam bidang pemasangan teralis. Jangan lupa untuk membaca ulasan dan melihat portofolio pekerjaan mereka sebelum memutuskan untuk menggunakan jasanya.</p><h3><strong>Perusahaan Teralis Terpercaya</strong></h3><p>Memilih perusahaan teralis terpercaya sangat penting agar Anda mendapatkan produk yang berkualitas dan pemasangan yang tepat. Pastikan perusahaan yang Anda pilih memiliki reputasi yang baik, memiliki teknisi yang berpengalaman, dan menawarkan harga yang kompetitif.</p><p>Memasang teralis di rumah Anda adalah salah satu langkah efektif untuk meningkatkan keamanan rumah. Dengan memilih jenis dan bahan teralis yang tepat, serta menggunakan jasa pemasangan yang profesional, Anda dapat memastikan rumah Anda terlindungi dari potensi ancaman kejahatan. Jangan lupa untuk selalu merawat teralis agar tetap awet dan berfungsi dengan baik. Dapatkan harga spesial jasa pasang teralis hari ini dan lindungi rumah Anda sekarang juga!</p>', 'jasa-pasang-teralis.jpg', 'jasa-pasang-teralis', 'Teralis Kuat, Rumah Aman! Dapatkan Harga Spesial Jasa Pasang Teralis Hari Ini', 'Jika Anda tidak ingin repot membuat teralis sendiri, Anda bisa menggunakan jasa pembuatan teralis yang banyak tersedia di berbagai daerah.', 'apa itu teralis,\r\njenis-jenis teralis,\r\nbahan teralis yang bagus,\r\nharga teralis per meter,\r\ncara merawat teralis besi,jasa pembuatan teralis,\r\ntukang las teralis terdekat,\r\nharga pasang teralis jendela,\r\njual teralis besi mu', 'images1736750094.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_barang`
+--
+
+CREATE TABLE `tbl_barang` (
+  `id_barang` int NOT NULL,
+  `nama_barang` varchar(160) NOT NULL,
+  `stock` int NOT NULL,
+  `satuan` varchar(50) NOT NULL,
+  `note` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_barang`
+--
+
+INSERT INTO `tbl_barang` (`id_barang`, `nama_barang`, `stock`, `satuan`, `note`) VALUES
+(1, 'LAMPU LED 10w ( IN-LITE )', 4, 'PCS', 'IN STOCK'),
+(2, 'FISCHER ( HARSON ) 6mm', 20, 'BOX', ''),
+(3, 'HINGESS / ENGSEL ( DOLUS GREEN )', 8, 'BOX', '1 BOX ISI 1 PASANG'),
+(4, 'SHOWER HINGE ( DEKSON )', 2, 'BOX', '1 BOX ISI 1'),
+(5, 'PAKU RIPET ( RIVOTTI )', 3, 'BOX', ''),
+(6, 'RAMBUNCIS KANAN ( PUTIH )', 0, 'PCS', ''),
+(7, 'RAMBUNCIS KANAN ( HITAM )', 0, 'PCS', ''),
+(8, 'RAMBUNCIS KANAN ( COKLAT )', 0, 'PCS', ''),
+(9, 'RAMBUNCIS KIRI ( PUTIH )', 0, 'PCS', ''),
+(10, 'RAMBUNCIS KIRI ( HITAM )', 0, 'PCS', ''),
+(11, 'RAMBUNCIS KIRI ( COKLAT )', 0, 'PCS', ''),
+(12, 'PLASBOLT', 0, 'PCS', ''),
+(13, 'CAS MAN', 0, 'PCS', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_in_stock`
+--
+
+CREATE TABLE `tbl_in_stock` (
+  `id` int NOT NULL,
+  `id_barang` int NOT NULL,
+  `stock_masuk` int NOT NULL,
+  `tanggal_masuk` date NOT NULL,
+  `note` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_out_stock`
+--
+
+CREATE TABLE `tbl_out_stock` (
+  `id` int NOT NULL,
+  `id_barang` int NOT NULL,
+  `stock_keluar` int NOT NULL,
+  `tanggal_keluar` date NOT NULL,
+  `nama_penerima` varchar(150) NOT NULL,
+  `note` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -13812,7 +13829,9 @@ INSERT INTO `visitors` (`ip`, `hits`, `date`, `online`, `time`, `user_agent`) VA
 ('::1', 107, '2025-01-04', '1735981455', '2025-01-04 06:07:56', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'),
 ('::1', 107, '2025-01-04', '1735981455', '2025-01-04 06:11:27', 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36'),
 ('127.0.0.1', 24, '2025-01-10', '1736516653', '2025-01-10 01:44:37', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0'),
-('127.0.0.1', 220, '2025-01-11', '1736591045', '2025-01-11 01:52:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0');
+('127.0.0.1', 220, '2025-01-11', '1736591045', '2025-01-11 01:52:03', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:134.0) Gecko/20100101 Firefox/134.0'),
+('::1', 10, '2025-01-12', '1736697378', '2025-01-12 01:14:18', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36'),
+('::1', 58, '2025-01-13', '1736750738', '2025-01-13 02:21:58', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36');
 
 -- --------------------------------------------------------
 
@@ -13906,7 +13925,9 @@ INSERT INTO `visitors_chart` (`hits`, `date`, `online`) VALUES
 (2, '2024-12-26', '1735180705'),
 (2, '2025-01-04', '1735971087'),
 (1, '2025-01-10', '1736473477'),
-(1, '2025-01-11', '1736560323');
+(1, '2025-01-11', '1736560323'),
+(1, '2025-01-12', '1736644458'),
+(1, '2025-01-13', '1736734918');
 
 -- --------------------------------------------------------
 
@@ -13927,7 +13948,7 @@ CREATE TABLE `whatsap_navigasi` (
 --
 
 INSERT INTO `whatsap_navigasi` (`id`, `no`, `link`, `text_title`, `pesan`) VALUES
-(1, '+6281906396422', '', 'Hubungi Kami', 'Eirmod, sea tempor elitr erat. Ipsum elitr erat dolor magna lorem sed rebum diam est diam justo est sea lorem.');
+(1, '+6281906396422', '', 'Hubungi Kami', 'Hallo daptkah saya mendapatkan informasi?');
 
 --
 -- Indexes for dumped tables
@@ -13994,6 +14015,18 @@ ALTER TABLE `ref_projek_images`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `ref_projek_rab`
+--
+ALTER TABLE `ref_projek_rab`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ref_projek_uraian`
+--
+ALTER TABLE `ref_projek_uraian`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `set_app`
 --
 ALTER TABLE `set_app`
@@ -14048,6 +14081,24 @@ ALTER TABLE `s_service`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_barang`
+--
+ALTER TABLE `tbl_barang`
+  ADD PRIMARY KEY (`id_barang`);
+
+--
+-- Indexes for table `tbl_in_stock`
+--
+ALTER TABLE `tbl_in_stock`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_out_stock`
+--
+ALTER TABLE `tbl_out_stock`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -14073,7 +14124,7 @@ ALTER TABLE `whatsap_navigasi`
 -- AUTO_INCREMENT for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `pages_client`
@@ -14091,13 +14142,13 @@ ALTER TABLE `pages_seo`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `post_category`
 --
 ALTER TABLE `post_category`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `project_request`
@@ -14109,7 +14160,7 @@ ALTER TABLE `project_request`
 -- AUTO_INCREMENT for table `quote`
 --
 ALTER TABLE `quote`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `ref_message`
@@ -14121,13 +14172,25 @@ ALTER TABLE `ref_message`
 -- AUTO_INCREMENT for table `ref_projek`
 --
 ALTER TABLE `ref_projek`
-  MODIFY `id_projek` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_projek` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `ref_projek_images`
 --
 ALTER TABLE `ref_projek_images`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+
+--
+-- AUTO_INCREMENT for table `ref_projek_rab`
+--
+ALTER TABLE `ref_projek_rab`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `ref_projek_uraian`
+--
+ALTER TABLE `ref_projek_uraian`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `set_app`
@@ -14163,7 +14226,7 @@ ALTER TABLE `s_about`
 -- AUTO_INCREMENT for table `s_chose_us`
 --
 ALTER TABLE `s_chose_us`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `s_feature`
@@ -14175,13 +14238,31 @@ ALTER TABLE `s_feature`
 -- AUTO_INCREMENT for table `s_portfolio`
 --
 ALTER TABLE `s_portfolio`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `s_service`
 --
 ALTER TABLE `s_service`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `tbl_barang`
+--
+ALTER TABLE `tbl_barang`
+  MODIFY `id_barang` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `tbl_in_stock`
+--
+ALTER TABLE `tbl_in_stock`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_out_stock`
+--
+ALTER TABLE `tbl_out_stock`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`

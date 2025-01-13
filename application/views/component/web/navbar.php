@@ -77,7 +77,7 @@
             <div class="col-lg-4 col-md-12 text-center text-lg-start">
                 <a href="#" class="navbar-brand m-0 p-0">
                     <!-- <h1 class="display-4 m-0">Builderz</h1> -->
-                    <img class="display-6 me-3" style="height:50px;width:180px;" src="<?= base_url('assets/upload/img/') . AppIdentitas('logo') ?>" alt="Logo">
+                    <img class="display-6 me-3" style="height:100px;" src="<?= base_url('assets/upload/img/') . AppIdentitas('logo') ?>" alt="Logo">
                 </a>
             </div>
             <div class="col-lg-8 col-md-7 d-none d-lg-block">
@@ -96,7 +96,7 @@
                             <i class="flaticon-call fs-1"></i>
                             <div class="ps-3">
                                 <p class="mb-0">Call Us</p>
-                                <small>tel:+<?= AppIdentitas('tlp') ?></small>
+                                <small>+<?= AppIdentitas('tlp') ?></small>
                             </div>
                         </div>
                     </div>

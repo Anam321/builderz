@@ -50,12 +50,11 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label for="text" class="form-label">Text</label>
-                                                        <textarea name="text" class="form-control"
-                                                            id="text"><?= $aboutData['text'] ?></textarea>
+                                                        <textarea name="text" style="height:350px;" class="form-control"><?= $aboutData['text'] ?></textarea>
 
                                                     </div>
 
-                                                    <div class="text-center">
+                                                    <div class=" text-center">
                                                         <button type="submit" class="btn btn-primary btn-sm m-2"
                                                             id="save"><i
                                                                 class="fa fa-check me-2"></i>Simpan</button>
@@ -131,7 +130,7 @@
         }
 
         $(document).ready(function() {
-            $('#text').summernote({
+            $('#textm').summernote({
 
                 toolbar: [
                     // [groupName, [list of button]]

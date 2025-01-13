@@ -20,7 +20,6 @@ $route['blog/(:any)'] = 'blog/detail/$1';
 $route['kategori/(:any)'] = 'blog/kategori/$1';
 $route['request/download/pdf/(:any)'] = 'service/downloadFile/$1';
 
-
 $route['app-admin/post/post_list'] = 'admin/post/index';
 $route['app-admin/post/form'] = 'admin/post/form';
 $route['app-admin/post/edit/(:any)'] = 'admin/post/edit/$1';
@@ -41,3 +40,21 @@ $route['app-admin/features'] = 'admin/features';
 
 $route['app-admin/quote'] = 'admin/quote';
 $route['app-admin/request'] = 'admin/request';
+
+$route['app-admin/message'] = 'admin/message';
+$route['app-admin/project'] = 'admin/project';
+$route['app-admin/stock/data_barang'] = 'admin/stock/data_barang';
+$route['app-admin/stock/in_stock'] = 'admin/stock/in_stock';
+$route['app-admin/stock/out_stock'] = 'admin/stock/out_stock';
+$route['app-admin/client'] = 'admin/client';
+$route['app-admin/app'] = 'admin/app';
+$route['app-admin/app_medsos'] = 'admin/app_medsos';
+$route['app-admin/users'] = 'admin/users';
+$route['app-admin/portfolio'] = 'admin/portfolio';
+$route['app-admin/whatsnav'] = 'admin/whatsnav';
+$route['app-admin/whatsnav'] = 'admin/whatsnav';
+
+$route['sitemap-post\.xml'] = "Sitemap_post/index";
+$route['sitemap-portfolio\.xml'] = "Sitemap_post/portfolio";
+$route['sitemap-service\.xml'] = "Sitemap_post/service";
+$route['sitemap-pages\.xml'] = "Sitemap_post/pages";

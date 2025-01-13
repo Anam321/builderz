@@ -75,11 +75,9 @@ class Project extends CI_Controller
         } else {
             $data['conten'] = 'web/detail_projek';
 
-
-
             $q = $this->models->get_data_byId('s_portfolio', 'slug', $slug);
 
-            $data['metaTitle'] = $q['meta_title'];
+            $data['metaTitle'] = $q['title'];
             $data['metaKey'] = $q['meta_keyword'];
             $data['metaDesk'] =  word_limiter($q['meta_deskripsi'], 120);
             $data['author'] =  AppIdentitas('site');
@@ -91,7 +89,23 @@ class Project extends CI_Controller
             // $data['service'] = $this->models->get_data('s_service');
             $data['data_projek'] = $q;
             $data['projeck'] = $this->models->get_data_byId('ref_projek', 'id_projek', $q['projek']);
-            $data['client'] = $this->models->get_data_byId('pages_client', 'id_projek', $q['projek']);
+            $id_proj = $q['projek'];
+            $sqlclient = $this->db->query("SELECT id_projek FROM pages_client where id_projek='$id_proj'");
+            $cek_client = $sqlclient->num_rows();
+            if ($cek_client == false) {
+                $data['nama_client'] =  '-';
+                $data['foto_client'] = '-';
+                $data['alamat_client'] =  '-';
+                $data['testimoni_client'] = '-';
+            } else {
+                $client = $this->models->get_data_byId('pages_client', 'id_projek', $q['projek']);
+                $data['nama_client'] =  $client['name'];
+                $data['foto_client'] =  $client['foto'];
+                $data['alamat_client'] =  $client['alamat'];
+                $data['testimoni_client'] =  $client['testimoni'];
+            }
+
+
             $data['projek_foto'] = $this->models->get_data_where('ref_projek_images', 'id_projek', $q['projek']);
         }
 

@@ -34,6 +34,6 @@
 <script src="<?= base_url() ?>assets/admin/js/kaiadmin.min.js"></script>
 
 <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-<!--<script src="<?= base_url() ?>assets/admin/js/setting-demo.js"></script>-->
+<script src="<?= base_url() ?>assets/admin/js/setting-demo.js"></script>
 <!--<script src="<?= base_url() ?>assets/admin/js/demo.js"></script>-->
 <!--<script>-->

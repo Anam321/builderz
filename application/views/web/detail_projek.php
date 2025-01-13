@@ -127,10 +127,15 @@
                         <h6 class="h4 fw-bold bg-white px-2 text-uppercase mb-0">Client Review</h6>
                     </div>
                     <div class="d-flex flex-column p-4 bg-light">
-                        <img class="mb-3" src="<?= base_url('assets/upload/img/') . $client['foto'] ?>" alt="" style="width: 75px; height: 75px;">
-                        <h5 class="mb-0"><?= $client['name'] ?></h5>
-                        <p><?= $client['alamat'] ?></p>
-                        <p class="mb-0"><i class="fa fa-quote-left text-primary me-2"></i><?= $client['testimoni'] ?></p>
+                        <?php if ($foto_client == '-') {
+                            $fotos = 'default.png';
+                        } else {
+                            $fotos = $foto_client;
+                        } ?>
+                        <img class="mb-3" src="<?= base_url('assets/upload/img/') . $fotos ?>" alt="<?= $nama_client ?>" style="width: 75px; height: 75px;">
+                        <h5 class="mb-0"><?= $nama_client ?></h5>
+                        <p><?= $alamat_client ?></p>
+                        <p class="mb-0"><i class="fa fa-quote-left text-primary me-2"></i><?= $testimoni_client ?></p>
                     </div>
                 </div>
                 <!-- Review End -->

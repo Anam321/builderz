@@ -1,4 +1,8 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php $jmlprj = $this->db->get_where('ref_projek', ['status' => 0])->num_rows();
+$jmlprjr = $this->db->get_where('ref_projek', ['status' => 1])->num_rows();
+$jml_testi = $this->db->get('pages_client')->num_rows();
+$visit = $this->db->get_where('visitors', ['date' => date('Y-m-d')])->num_rows(); ?>
 <div class="container-fluid px-0 my-5 wow fadeIn" data-wow-delay="0.1s">
     <div class="row g-0">
         <div class="col-lg-6 bg-dark fact-left">
@@ -9,7 +13,7 @@
                             <i class="flaticon-worker text-primary"></i>
                         </div>
                         <div class="ps-3">
-                            <h2 class="text-primary" data-toggle="counter-up">109</h2>
+                            <h2 class="text-primary" data-toggle="counter-up"><?= $visit ?></h2>
                             <h6 class="text-primary text-uppercase fw-semi-bold m-0">Expert Worker</h6>
                         </div>
                     </div>
@@ -20,7 +24,7 @@
                             <i class="flaticon-building text-primary"></i>
                         </div>
                         <div class="ps-3">
-                            <h2 class="text-primary" data-toggle="counter-up">485</h2>
+                            <h2 class="text-primary" data-toggle="counter-up"><?= $jml_testi ?></h2>
                             <h6 class="text-primary text-uppercase fw-semi-bold m-0">Happy Client</h6>
                         </div>
                     </div>
@@ -35,7 +39,7 @@
                             <i class="flaticon-address text-primary"></i>
                         </div>
                         <div class="ps-3">
-                            <h2 class="text-dark" data-toggle="counter-up">789</h2>
+                            <h2 class="text-dark" data-toggle="counter-up"><?= $jmlprj ?></h2>
                             <h6 class="text-dark text-uppercase fw-semi-bold m-0">Complete Project</h6>
                         </div>
                     </div>
@@ -46,7 +50,7 @@
                             <i class="flaticon-crane text-primary"></i>
                         </div>
                         <div class="ps-3">
-                            <h2 class="text-dark" data-toggle="counter-up">890</h2>
+                            <h2 class="text-dark" data-toggle="counter-up"><?= $jmlprjr ?></h2>
                             <h6 class="text-dark text-uppercase fw-semi-bold m-0">Running Project</h6>
                         </div>
                     </div>
