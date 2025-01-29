@@ -14,12 +14,12 @@
                     </li>
                     <li class="breadcrumb-item" itemprop="itemListElement" itemscope
                         itemtype="https://schema.org/ListItem">
-                        <a href="<?= base_url('blog/') ?>" itemprop="item"> <span itemprop="name">Blog</span></a>
+                        <a href="<?= htmlentities(base_url('kategori/') . kategori($post_seo['categori'], 'slug'), ENT_QUOTES) ?>" itemprop="item"> <span itemprop="name"><?= kategori($post_seo['categori'], 'kategori') ?></span></a>
                         <meta itemprop="position" content="2" />
                     </li>
                     <li class="breadcrumb-item text-white active" aria-current="page" itemprop="itemListElement" itemscope
                         itemtype="https://schema.org/ListItem">
-                        <?= $post_seo['title'] ?></span>
+                        <span itemprop="name"><?= $post_seo['title'] ?></span>
                         <meta itemprop="position" content="3" />
                     </li>
                 </ol>

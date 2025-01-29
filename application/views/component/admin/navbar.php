@@ -30,6 +30,8 @@
     $this->db->where('hit', 1);
     $this->db->order_by('id', 'DESC');
     $messages = $this->db->get('ref_message')->result();
+
+    $colornav = $this->db->get_where('template_color', ['id' => 2])->row_array();
     ?>
 
     <?php $this->load->View('component/admin/sidebar'); ?>
@@ -38,7 +40,7 @@
         <div class="main-header">
             <div class="main-header-logo">
                 <!-- Logo Header -->
-                <div class="logo-header" data-background-color="dark">
+                <div class="logo-header" data-background-color="<?= $colornav['color'] ?>">
                     <a href="index.html" class="logo">
                         <img src="<?= base_url('assets/admin/') ?>img/kaiadmin/logo_light.svg" alt="navbar brand"
                             class="navbar-brand" height="20" />
@@ -58,7 +60,7 @@
                 <!-- End Logo Header -->
             </div>
             <!-- Navbar Header -->
-            <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+            <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom" data-background-color="<?= $colornav['color'] ?>">
                 <div class="container-fluid">
 
 

@@ -51,7 +51,7 @@ class App_m extends CI_Model
         $this->db->where('ip', $ip);
         $this->db->where('user_agent', $user_agent);
         $this->db->where('date', $date);
-        $query = $this->db->get('pages_blog_visitors');
+        $query = $this->db->get('post_visitors');
 
         return $query->num_rows() > 0;
     }

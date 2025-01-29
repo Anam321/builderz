@@ -2,13 +2,15 @@
     $app = $this->db->get_where('set_app', ['id' => 1])->row_array();
     $user = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array();
     $role = $this->db->get_where('users_role', ['role_id' => $user['role_id']])->row_array();
+    $colorheadlogo = $this->db->get_where('template_color', ['id' => 1])->row_array();
+    $colorside = $this->db->get_where('template_color', ['id' => 3])->row_array();
     ?>
  <div class="wrapper">
      <!-- Sidebar -->
-     <div class="sidebar" data-background-color="dark">
+     <div class="sidebar" data-background-color="<?= $colorside['color'] ?>">
          <div class="sidebar-logo">
              <!-- Logo Header -->
-             <div class="logo-header" data-background-color="dark">
+             <div class="logo-header" data-background-color="<?= $colorheadlogo['color'] ?>">
                  <a href="index.html" class="logo">
 
                      <?php if ($user['foto'] == false) {

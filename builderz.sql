@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 13, 2025 at 06:47 AM
+-- Generation Time: Jan 29, 2025 at 04:21 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -20,6 +20,38 @@ SET time_zone = "+00:00";
 --
 -- Database: `builderz`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `color`
+--
+
+CREATE TABLE `color` (
+  `id` int NOT NULL,
+  `color` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `color`
+--
+
+INSERT INTO `color` (`id`, `color`) VALUES
+(1, 'dark'),
+(2, 'blue'),
+(3, 'purple'),
+(4, 'light-blue'),
+(5, 'green'),
+(6, 'orange'),
+(7, 'red'),
+(8, 'white'),
+(9, 'dark2'),
+(10, 'blue2'),
+(11, 'purple2'),
+(12, 'light-blue2'),
+(13, 'green2'),
+(14, 'orange2'),
+(15, 'red2');
 
 -- --------------------------------------------------------
 
@@ -462,7 +494,7 @@ CREATE TABLE `set_app` (
 --
 
 INSERT INTO `set_app` (`id`, `nama_web`, `tentang`, `notlp`, `email`, `lokasi`, `title`, `map`, `alamat`, `logo`, `favicon`, `site`, `keyword`, `kota`, `provinsi`, `pos`) VALUES
-(1, 'GUMILAR BERKAH KONSTRUKSI', 'GUMILAR BERKAH KONSTRUKSI adalah perusahaan profesional yang bergerak di bidang jasa dekorasi  solusi exterior & interior rumah. ', '6285798780809', 'info@gumilarberkahkonstruksi.id', 'https://maps.app.goo.gl/bHWxM6NxrKbDkdgv8', 'Jasa Konstruksi Bangunan, Interior & Bengkel Las Terbaik  di Indonesia', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.058538848572!2d106.60483667593675!3d-6.256018861253075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc67c143485b%3A0xeeca2efa0a7c2233!2sJl.%20Raya%20Legok%20-%20Karawaci%20No.87%2C%20Medang%2C%20Kec.%20Pagedangan%2C%20Kabupaten%20Tangerang%2C%20Banten%2015810!5e0!3m2!1sid!2sid!4v1728037738348!5m2!1sid!2sid', 'KP. Carang Pulang Medang,Pagedangan, Tangerang', 'logo1736750650.png', 'favicon1728037457.png', 'https://gumilarberkahkonstruksi.id', 'perusahaan konstruksi bangunan, jasa konstruksi bangunan, desain interior, jasa desain interior, bengkel las, bengkel las aluminium, pemasangan aluminium,jasa kontruksi rumah, jasa bangun rumah, jasa renovasi rumah, jasa renovasi kantor, jasa bengkel las, kontraktor rumah, jasa kontraktor rumah, bengkel las,anugrah alumunium', 'Tangerang', 'Banten', 15859);
+(1, 'GUMILAR BERKAH KONSTRUKSI', 'GUMILAR BERKAH KONSTRUKSI adalah perusahaan profesional yang bergerak di bidang jasa dekorasi  solusi exterior & interior rumah. ', '6285798780809', 'info@gumilarberkahkonstruksi.id', 'https://maps.app.goo.gl/bHWxM6NxrKbDkdgv8', 'Jasa Konstruksi Bangunan, Interior & Bengkel Las Terbaik  di Indonesia', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.058538848572!2d106.60483667593675!3d-6.256018861253075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69fc67c143485b%3A0xeeca2efa0a7c2233!2sJl.%20Raya%20Legok%20-%20Karawaci%20No.87%2C%20Medang%2C%20Kec.%20Pagedangan%2C%20Kabupaten%20Tangerang%2C%20Banten%2015810!5e0!3m2!1sid!2sid!4v1728037738348!5m2!1sid!2sid', 'KP. Carang Pulang Medang,Pagedangan, Tangerang', 'logo1738117488.png', 'favicon1728037457.png', 'https://gumilarberkahkonstruksi.id', 'perusahaan konstruksi bangunan, jasa konstruksi bangunan, desain interior, jasa desain interior, bengkel las, bengkel las aluminium, pemasangan aluminium,jasa kontruksi rumah, jasa bangun rumah, jasa renovasi rumah, jasa renovasi kantor, jasa bengkel las, kontraktor rumah, jasa kontraktor rumah, bengkel las,anugrah alumunium', 'Tangerang', 'Banten', 15859);
 
 -- --------------------------------------------------------
 
@@ -700,6 +732,27 @@ CREATE TABLE `tbl_out_stock` (
   `nama_penerima` varchar(150) NOT NULL,
   `note` varchar(150) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `template_color`
+--
+
+CREATE TABLE `template_color` (
+  `id` int NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `component` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `template_color`
+--
+
+INSERT INTO `template_color` (`id`, `color`, `component`) VALUES
+(1, 'orange2', 'LOGO-HEADER'),
+(2, 'orange', 'NAVBAR-HEADER'),
+(3, 'dark', 'SIDEBAR');
 
 -- --------------------------------------------------------
 
@@ -13955,6 +14008,12 @@ INSERT INTO `whatsap_navigasi` (`id`, `no`, `link`, `text_title`, `pesan`) VALUE
 --
 
 --
+-- Indexes for table `color`
+--
+ALTER TABLE `color`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `login_attempts`
 --
 ALTER TABLE `login_attempts`
@@ -14099,6 +14158,12 @@ ALTER TABLE `tbl_out_stock`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `template_color`
+--
+ALTER TABLE `template_color`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -14119,6 +14184,12 @@ ALTER TABLE `whatsap_navigasi`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `color`
+--
+ALTER TABLE `color`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `login_attempts`
@@ -14263,6 +14334,12 @@ ALTER TABLE `tbl_in_stock`
 --
 ALTER TABLE `tbl_out_stock`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `template_color`
+--
+ALTER TABLE `template_color`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`

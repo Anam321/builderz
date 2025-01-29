@@ -37,3 +37,65 @@
 <script src="<?= base_url() ?>assets/admin/js/setting-demo.js"></script>
 <!--<script src="<?= base_url() ?>assets/admin/js/demo.js"></script>-->
 <!--<script>-->
+
+<script>
+    function colorheadlogo(color) {
+
+        $.ajax({
+            url: "<?php echo site_url('admin/navigasi/colorheadlogo/') ?>" + color,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data) {
+                if (data.status == '00') {
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error data switch');
+            }
+        });
+
+    }
+
+    function colornav(color) {
+
+        $.ajax({
+            url: "<?php echo site_url('admin/navigasi/colornav/') ?>" + color,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data) {
+                if (data.status == '00') {
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error data switch');
+            }
+        });
+
+    }
+
+    function colorside(color) {
+
+        $.ajax({
+            url: "<?php echo site_url('admin/navigasi/colorside/') ?>" + color,
+            type: "POST",
+            dataType: "JSON",
+            success: function(data) {
+                if (data.status == '00') {
+                    window.location.reload();
+                } else {
+                    window.location.reload();
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error data switch');
+            }
+        });
+
+    }
+</script>

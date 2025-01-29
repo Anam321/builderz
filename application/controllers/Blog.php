@@ -189,6 +189,7 @@ class Blog extends CI_Controller
             $data['og_images'] = '';
             $data['og_images_alt'] = '';
         } else {
+            $this->blog_visitors($slug);
             $data['conten'] = 'web/detail_blog';
             $q = $this->models->get_data_byId('post', 'slug', $slug);
 
@@ -229,5 +230,24 @@ class Blog extends CI_Controller
         $data['kategori_post'] = $this->models->get_data('post_category', $this->db->order_by('id', 'DESC'));
 
         return $data;
+    }
+
+    function blog_visitors($url)
+    {
+        $ip    = $this->input->ip_address();
+        $date  = date("Y-m-d");
+        $user_agent = $this->input->user_agent();
+        $time = time();
+        $timeinsert = date("Y-m-d H:i:s");
+        $post = $url;
+
+        if (!$this->models->check_visitor($ip, $user_agent, $date)) {
+            // Tambahkan pengunjung ke database
+            $this->db->query("INSERT INTO post_visitors(ip, date, hits, online, time, post, user_agent) VALUES('" . $ip . "','" . $date . "','1','" . $time . "','" . $timeinsert . "','" . $post . "','" . $user_agent . "')");
+            $this->db->query("UPDATE post SET visitor=visitor+1 WHERE link='" . $post . "' ");
+        } else {
+            $this->db->query("UPDATE post_visitors SET hits=hits+1, online='" . $time . "' WHERE ip='" . $ip . "' AND date='" . $date . "'");
+            // $this->db->query("UPDATE post SET hits=hits+1 WHERE url='" . $post . "' ");
+        }
     }
 }
