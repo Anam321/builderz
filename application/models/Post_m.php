@@ -3,14 +3,14 @@
 class Post_m extends CI_Model
 {
 
-
+    var $order = array('id' => 'DESC'); // default order 
     public function __construct()
     {
         parent::__construct();
         $this->load->database();
     }
 
-    private function _get_datatables_query($table, $column_order, $column_search, $order)
+    private function _get_datatables_query($table, $column_order, $column_search, $orderr)
     {
 
         $this->db->from($table);
