@@ -178,6 +178,7 @@ class Blog extends CI_Controller
 
         $sql = $this->db->query("SELECT slug FROM post where slug='$slug'");
         $cek_url = $sql->num_rows();
+        $kat = $this->db->get_where('post', ['slug' => $slug])->row_array();
 
         if ($cek_url == false) {
             $data['conten'] = 'web/section/error_404';
@@ -202,7 +203,7 @@ class Blog extends CI_Controller
 
             $data['side'] = $this->sidebar_post();
             $data['post_seo'] = $q;
-            $data['r_post'] = $this->models->get_data('post', $this->db->order_by('id', 'asc'));
+            $data['r_post'] = $this->models->get_data('post', $this->db->where('categori', $kat['categori']));
         }
 
         $data['componen'] = $this->componen();

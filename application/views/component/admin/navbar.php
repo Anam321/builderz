@@ -159,7 +159,7 @@
                                     <li>
                                         <div class="dropdown-divider"></div>
                                         <!-- <a class="dropdown-item" href="#">My Profile</a> -->
-                                        <a class="dropdown-item" href="<?= base_url('auth/logout') ?>">Logout</a>
+                                        <a class="dropdown-item" href="<?= base_url('app-admin/logout') ?>">Logout</a>
                                     </li>
                                 </div>
                             </ul>

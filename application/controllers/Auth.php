@@ -15,7 +15,7 @@ class Auth extends CI_Controller
     {
         if ($this->session->userdata('username')) {
             redirect('admin/dashboard');
-        }else{
+        } else {
             $ip_address = $this->input->ip_address();
 
             $limit_time = date('Y-m-d H:i:s', time() - $this->lockout_time);
@@ -29,7 +29,6 @@ class Auth extends CI_Controller
             $data['app'] = $this->db->get_where('set_app', ['id' => 1])->row_array();
             $this->load->view('login', $data);
         }
-     
     }
 
     public function login_admin()
@@ -118,6 +117,6 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('username');
         $this->session->unset_userdata('role_id');
         // redirect ke halaman login
-        redirect('admin/login');
+        redirect('app-admin/login');
     }
 }

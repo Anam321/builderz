@@ -23,3 +23,11 @@
 
  <!-- Template Stylesheet -->
  <link href="<?= base_url('assets/frontend/') ?>css/style.css" rel="stylesheet">
+
+ <style>
+     :root {
+         --primary: #FDBE33;
+         --dark: #030F27;
+         --light: #F3F6FF;
+     }
+ </style>

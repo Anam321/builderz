@@ -5,7 +5,7 @@ $route['default_controller'] = 'app';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['app-admin/login'] = 'auth/index';
-
+$route['app-admin/logout'] = 'auth/logout';
 
 $route['request/PostData'] = 'kontak/requestService';
 $route['request/sendMessage'] = 'kontak/sendMessage';
