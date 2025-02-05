@@ -10,6 +10,7 @@
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            font-size: 11px;
         }
 
         #table td,
@@ -43,7 +44,7 @@
     <table id="table">
         <thead>
             <tr>
-                <th style="text-align: center; vertical-align: middle; color:">No.</th>
+                <th style="text-align: center; vertical-align: middle;">No.</th>
                 <th style="text-align: center; vertical-align: middle;">NAMA PROJECT</th>
                 <th style="text-align: center; vertical-align: middle;">NAMA CLIENT</th>
                 <th style="text-align: center; vertical-align: middle;">ALAMAT</th>

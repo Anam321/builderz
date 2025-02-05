@@ -91,7 +91,7 @@ class Project extends CI_Controller
 
     public function confirm($id)
     {
-        $prj = $this->models->fetch_data();
+        $prj = $this->models->dataTable();
         foreach ($prj as $field) {
             $query = $this->models->get_anggaran($field->id_projek);
             $anggaran = $query;
@@ -103,7 +103,7 @@ class Project extends CI_Controller
         $data['conten'] = 'admin/project/conf';
         $data['projek'] = $this->db->get_where('ref_projek', ['id_projek' => $id])->row_array();
         $data['uraian'] = $this->models->get_uraian($id);
-        $data['rab'] = $this->models->get_uraian_rab($id);
+        // $data['rab'] = $this->models->get_uraian_rab($id);
 
         $this->load->view('main', $data);
     }
@@ -479,14 +479,14 @@ class Project extends CI_Controller
     {
         $this->load->library('pdfgenerator');
 
-        $prj = $this->models->fetch_data();
+        $prj = $this->models->dataTable();
         foreach ($prj as $field) {
             $query = $this->models->get_anggaran($field->id_projek);
             $anggaran = $query;
         }
 
         $this->data['title_pdf'] = 'Laporan Data Project';
-        $this->data['projek'] = $this->models->fetch_data();
+        $this->data['projek'] = $this->models->dataTable();
         $this->data['anggaran'] = $anggaran;
 
         $file_pdf = 'laporan_Data_Project';
@@ -499,13 +499,13 @@ class Project extends CI_Controller
 
     public function print_project()
     {
-        $prj = $this->models->fetch_data();
+        $prj = $this->models->dataTable();
         foreach ($prj as $field) {
             $query = $this->models->get_anggaran($field->id_projek);
             $anggaran = $query;
         }
         $data['title'] = 'DATA PROJECT';
-        $data['projek'] = $this->models->fetch_data();
+        $data['projek'] = $this->models->dataTable();
         $data['anggaran'] = $anggaran;
         $this->load->view('admin/project/print_projek', $data);
     }

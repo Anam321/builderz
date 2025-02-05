@@ -1,5 +1,71 @@
     <?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+    <style>
+        #table {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 11px;
+        }
 
+        /* #table td,
+        #table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        } */
+
+        /* #table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        } */
+
+        /* #table tr:hover {
+            background-color: #ddd;
+        } */
+
+        #table th {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .border {
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .bt {
+            border-top: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .bb {
+            border-bottom: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .l_border {
+            border-left: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .r_border {
+            border-right: 1px solid #ddd;
+            padding: 5px;
+        }
+
+        .total {
+            background-color: #FFEE58;
+            color: #212121;
+            padding: 5px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
+
+            font-weight: bold;
+        }
+    </style>
 
     <div class="container">
         <div class="page-inner">
@@ -47,7 +113,7 @@
                                 <!-- Modal -->
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-sm table-bordered " style="width: 100%;">
-                                        <thead class="table-secondary">
+                                        <thead class="table-success">
                                             <tr style="height: 50px; ">
                                                 <th style="text-align: center; vertical-align: middle;">#</th>
                                                 <th style="text-align: center; vertical-align: middle;">URAIAN PEKERJAAN
@@ -60,105 +126,115 @@
                                                 </th>
                                                 <th style="text-align: center; vertical-align: middle;">TOTAL HARGA</th>
                                                 <?php if ($projek['status'] == 1) : ?>
-                                                <th style="text-align: center; vertical-align: middle;">AKSI</th>
+                                                    <th style="text-align: center; vertical-align: middle;">AKSI</th>
                                                 <?php endif ?>
                                             </tr>
                                         </thead>
                                         <tbody id="listuraian">
+
                                             <?php $ab = 'A';
                                             $sub_total = 0;
                                             foreach ($uraian as $field) : ?>
-                                            <tr>
-                                                <td style="border-right: none;">
-                                                </td>
-                                                <td style="border: none; padding:10px;">
+                                                <tr>
+                                                    <td style="border-right: none;">
+                                                    <td style="border: none; "></td>
+                                                    <td style="border: none; "></td>
+                                                    <td style="border: none; "></td>
+                                                    <td style="border: none; "></td>
+                                                    <td style="border: none; "></td>
+                                                    <td style="border: none; "></td>
+                                                    <td style="border-left: none;"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="border-right: none;" class="table-primary">
+                                                    </td>
+                                                    <td style="border: none; padding:10px;" class="table-primary">
 
-                                                    <h6><?= $ab++ ?>. <?= $field->uraian ?></h6>
-                                                </td>
+                                                        <h6><?= $ab++ ?>. <?= $field->uraian ?></h6>
+                                                    </td>
 
-                                                <td style="border: none; "></td>
-                                                <td style="border: none;"></td>
-                                                <td style="border: none;"></td>
-                                                <td style="border: none;"></td>
-                                                <td style="border<?php if ($projek['status'] == 0) {
+                                                    <td style="border: none; " class="table-primary"></td>
+                                                    <td style="border: none;" class="table-primary"></td>
+                                                    <td style="border: none;" class="table-primary"></td>
+                                                    <td style="border: none;" class="table-primary"></td>
+                                                    <td style="border<?php if ($projek['status'] == 0) {
                                                                             echo '-left';
-                                                                        } ?>: none;"></td>
-                                                <?php if ($projek['status'] == 1) : ?>
-                                                <td style="border-left: none;">
-                                                    <a
-                                                        href="<?= base_url('admin/project/form_rab/') ?>/<?= $id_projek ?>/<?= $field->id ?>"><button
-                                                            type="button" class="btn btn-success btn-sm m-2"><i
-                                                                class="fa fa-plus me-2"></i>Tambah List</button></a>
-                                                    <button onclick="edituraian(<?= $field->id ?>)" type="button"
-                                                        class="btn btn-warning btn-sm "><i
-                                                            class="fa fa-edit me-2"></i>Edit Point</button>
-                                                    <button onclick="deletes_uraian(<?= $field->id ?>)" type="button"
-                                                        class="btn btn-danger btn-sm "><i
-                                                            class="fa fa-trash me-2"></i>Delete Point</button>
-                                                </td>
-                                                <?php endif ?>
-                                            </tr>
-                                            <?php $no = 1;
+                                                                        } ?>: none;" class="table-primary"></td>
+                                                    <?php if ($projek['status'] == 1) : ?>
+                                                        <td style="border-left: none;" class="table-primary">
+                                                            <a href="<?= base_url('admin/project/form_rab/') ?>/<?= $id_projek ?>/<?= $field->id ?>" type="button" class="btn btn-success btn-sm "><i
+                                                                    class="fa fa-plus me-2"></i>Tambah List</a>
+                                                            <button onclick="edituraian(<?= $field->id ?>)" type="button"
+                                                                class="btn btn-warning btn-sm "><i
+                                                                    class="fa fa-edit me-2"></i>Edit Point</button>
+                                                            <button onclick="deletes_uraian(<?= $field->id ?>)" type="button"
+                                                                class="btn btn-danger btn-sm "><i
+                                                                    class="fa fa-trash me-2"></i>Delete Point</button>
+                                                        </td>
+                                                    <?php endif ?>
+                                                </tr>
+
+                                                <?php $no = 1;
                                                 $total = 0;
 
                                                 $this->db->where('id_uraian', $field->id);
                                                 $query = $this->db->get('ref_projek_rab')->result();
                                                 foreach ($query as $row) : ?>
-                                            <tr>
-                                                <td><?= $no++ ?></td>
-                                                <td><?= $row->uraian ?></td>
-                                                <td><?= $row->spesifikasi_bahan ?></td>
-                                                <td><?= $row->vol ?></td>
-                                                <td><?= $row->satuan ?></td>
-                                                <td>Rp. <?= number_format($row->harga_satuan) ?></td>
-                                                <td>Rp. <?= number_format($row->tot_harga) ?></td>
-                                                <?php if ($projek['status'] == 1) : ?>
-                                                <td>
-                                                    <a
-                                                        href="<?= base_url('admin/project/edit_rab/') ?>/<?= $id_projek ?>/<?= $field->id ?>/<?= $row->id ?>"><button
-                                                            type="button" class="btn btn-warning btn-sm "><i
-                                                                class="fa fa-edit me-2"></i>Edit List</button></a>
-                                                    <button onclick="delete_list(<?= $row->id ?>)" type="button"
-                                                        class="btn btn-danger btn-sm "><i
-                                                            class="fa fa-trash me-2"></i>Delete List</button>
-                                                </td>
-                                                <?php endif ?>
-                                            </tr>
-                                            <?php $total += $row->tot_harga; ?>
+                                                    <tr>
+                                                        <td><?= $no++ ?></td>
+                                                        <td><?= $row->uraian ?></td>
+                                                        <td><?= $row->spesifikasi_bahan ?></td>
+                                                        <td><?= $row->vol ?></td>
+                                                        <td><?= $row->satuan ?></td>
+                                                        <td>Rp. <?= number_format($row->harga_satuan) ?></td>
+                                                        <td>Rp. <?= number_format($row->tot_harga) ?></td>
+                                                        <?php if ($projek['status'] == 1) : ?>
+                                                            <td>
+                                                                <a
+                                                                    href="<?= base_url('admin/project/edit_rab/') ?>/<?= $id_projek ?>/<?= $field->id ?>/<?= $row->id ?>"><button
+                                                                        type="button" class="btn btn-warning btn-sm "><i
+                                                                            class="fa fa-edit me-2"></i>Edit List</button></a>
+                                                                <button onclick="delete_list(<?= $row->id ?>)" type="button"
+                                                                    class="btn btn-danger btn-sm "><i
+                                                                        class="fa fa-trash me-2"></i>Delete List</button>
+                                                            </td>
+                                                        <?php endif ?>
+                                                    </tr>
+                                                    <?php $total += $row->tot_harga; ?>
+                                                <?php endforeach ?>
+
+
+                                                <tr>
+                                                    <td style="border-right: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style=" border: none; "></td>
+                                                    <td style=" border: none;"></td>
+                                                    <td style="border: none;"></td>
+                                                    <td style="border: none;" class="table-secondary">TOTAL</td>
+                                                    <td style="border-left: none;" class="table-secondary">
+                                                        <h6>Rp. <?= number_format($total) ?></h6>
+                                                        <?php $sub_total += $total; ?>
+                                                    </td>
+                                                    <?php if ($projek['status'] == 1) : ?>
+                                                        <td style="border-left: none;"></td>
+                                                    <?php endif ?>
+                                                </tr>
+
                                             <?php endforeach ?>
-
-
                                             <tr>
-                                                <td style="border-right: none;" class="table-warning"></td>
-                                                <td style="border: none;" class="table-warning"></td>
-                                                <td style=" border: none; " class="table-warning"></td>
-                                                <td style=" border: none;" class="table-warning"></td>
-                                                <td style="border: none;" class="table-warning"></td>
-                                                <td style="border: none;" class="table-warning"></td>
-                                                <td style="border-left: none;" class="table-warning">
-                                                    <h6>Rp. <?= number_format($total) ?></h6>
-                                                    <?php $sub_total += $total; ?>
-                                                </td>
-                                                <?php if ($projek['status'] == 1) : ?>
-                                                <td style="border-left: none;" class="table-warning"></td>
-                                                <?php endif ?>
-                                            </tr>
-
-                                            <?php endforeach ?>
-                                            <tr>
-                                                <td style="border-right: none;" class="table-secondary"></td>
-                                                <td style="border: none;" class="table-secondary"></td>
-                                                <td style=" border: none; " class="table-secondary"></td>
-                                                <td style=" border: none;" class="table-secondary"></td>
-                                                <td style="border: none;" class="table-secondary"></td>
+                                                <td style="border-right: none;"></td>
+                                                <td style="border: none;"></td>
+                                                <td style=" border: none; "></td>
+                                                <td style=" border: none;"></td>
+                                                <td style="border: none;"></td>
                                                 <td style="border: none;  padding:10px;" class="table-secondary">
-                                                    <h6>SUB TOTAL</h6>
+                                                    <h6>GRAND TOTAL</h6>
                                                 </td>
                                                 <td style="border: none; padding-top:10px;" class="table-secondary">
                                                     <h6>Rp. <?= number_format($sub_total) ?></h6>
                                                 </td>
                                                 <?php if ($projek['status'] == 1) : ?>
-                                                <td style="border-left: none;"></td>
+                                                    <td style="border-left: none;"></td>
                                                 <?php endif ?>
                                             </tr>
                                         </tbody>
@@ -210,131 +286,56 @@
 
 
     <script>
-toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-top-center",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
 
-function adduraian() {
-    save_method = 'add';
-    $('#form_uraian')[0].reset();
-    $('#modaldatauraian').modal('show');
-    $('.modal-title').text('Tambah Point RAB');
-}
+        function adduraian() {
+            save_method = 'add';
+            $('#form_uraian')[0].reset();
+            $('#modaldatauraian').modal('show');
+            $('.modal-title').text('Tambah Point RAB');
+        }
 
-$('#form_uraian').submit(function(e) {
-    e.preventDefault();
-    var forms = $('#form_uraian')[0];
-    var data = new FormData(forms);
+        $('#form_uraian').submit(function(e) {
+            e.preventDefault();
+            var forms = $('#form_uraian')[0];
+            var data = new FormData(forms);
 
-    $('#savur').text('In Process, Please wait...'); //change button text
-    $('#savur').attr('disabled', true); //set button disable
-    var url;
+            $('#savur').text('In Process, Please wait...'); //change button text
+            $('#savur').attr('disabled', true); //set button disable
+            var url;
 
-    if (save_method == 'add') {
-        url = "<?php echo site_url('admin/project/input_uraian/') ?>";
-    } else {
-        url = "<?php echo site_url('admin/project/update_uraian/') ?>";
-    }
-    $.ajax({
-        url: url,
-        type: "POST",
-        //contentType: 'multipart/form-data',
-        cache: false,
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        data: data,
-        dataType: "JSON",
-
-        success: function(data) {
-            if (data.status == '00') {
-                Swal.fire({
-                    position: "top-midle",
-                    icon: "success",
-                    title: data.mess,
-                    showConfirmButton: false,
-                    timer: 1500,
-
-                }).then((result) => {
-                    $('#form_uraian')[0].reset();
-                    $('#modaldatauraian').modal('hide');
-                    window.location.reload();
-                })
-
+            if (save_method == 'add') {
+                url = "<?php echo site_url('admin/project/input_uraian/') ?>";
             } else {
-                Swal.fire({
-                    position: "top-midle",
-                    icon: "error",
-                    title: data.mess,
-                    showConfirmButton: false,
-                    timer: 2000,
-
-                })
+                url = "<?php echo site_url('admin/project/update_uraian/') ?>";
             }
-            $('#savur').text('Save Data'); //change button text
-            $('#savur').attr('disabled', false); //set button enable
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            toastr.error('Error code data !')
-            $('#savur').text('Save Data'); //change button text
-            $('#savur').attr('disabled', false); //set button enable
-        }
-    });
-
-});
-
-function edituraian(id) {
-    save_method = 'update';
-    $('#form_uraian')[0].reset();
-    $('#modaldatauraian').modal('show');
-    $('.modal-title').text('Edit kategori');
-
-    $.ajax({
-        url: "<?php echo site_url('admin/project/get_uraian_ById/') ?>" + id,
-        type: "POST",
-        dataType: "JSON",
-
-        success: function(data) {
-            $('[name="id_uraian"]').val(data.id);
-            $('[name="uraian"]').val(data.uraian);
-
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert('Error get data from ajax');
-        }
-    });
-}
-
-function deletes_uraian(id) {
-
-    Swal.fire({
-        title: "Are you sure to delete this Data ?",
-        // text: "Data akan dihapus",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#17a2b8",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Ya, Delete"
-    }).then((result) => {
-        if (result.isConfirmed) {
             $.ajax({
-                url: "<?php echo site_url('admin/project/delete_uraian/') ?>" + id,
+                url: url,
                 type: "POST",
+                //contentType: 'multipart/form-data',
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                data: data,
                 dataType: "JSON",
+
                 success: function(data) {
                     if (data.status == '00') {
                         Swal.fire({
@@ -342,13 +343,13 @@ function deletes_uraian(id) {
                             icon: "success",
                             title: data.mess,
                             showConfirmButton: false,
-                            timer: 2000,
+                            timer: 1500,
 
                         }).then((result) => {
-                            reload_table();
-
+                            $('#form_uraian')[0].reset();
+                            $('#modaldatauraian').modal('hide');
+                            window.location.reload();
                         })
-
 
                     } else {
                         Swal.fire({
@@ -360,62 +361,137 @@ function deletes_uraian(id) {
 
                         })
                     }
+                    $('#savur').text('Save Data'); //change button text
+                    $('#savur').attr('disabled', false); //set button enable
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Error deleting data');
+                    toastr.error('Error code data !')
+                    $('#savur').text('Save Data'); //change button text
+                    $('#savur').attr('disabled', false); //set button enable
                 }
             });
-        }
-    });
-}
 
-function delete_list(id) {
+        });
 
-    Swal.fire({
-        title: "Are you sure to delete this Data ?",
-        // text: "Data akan dihapus",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#17a2b8",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Ya, Delete"
-    }).then((result) => {
-        if (result.isConfirmed) {
+        function edituraian(id) {
+            save_method = 'update';
+            $('#form_uraian')[0].reset();
+            $('#modaldatauraian').modal('show');
+            $('.modal-title').text('Edit kategori');
+
             $.ajax({
-                url: "<?php echo site_url('admin/project/delete_list/') ?>" + id,
+                url: "<?php echo site_url('admin/project/get_uraian_ById/') ?>" + id,
                 type: "POST",
                 dataType: "JSON",
+
                 success: function(data) {
-                    if (data.status == '00') {
-                        Swal.fire({
-                            position: "top-midle",
-                            icon: "success",
-                            title: data.mess,
-                            showConfirmButton: false,
-                            timer: 2000,
+                    $('[name="id_uraian"]').val(data.id);
+                    $('[name="uraian"]').val(data.uraian);
 
-                        }).then((result) => {
-                            reload_table();
-
-                        })
-
-
-                    } else {
-                        Swal.fire({
-                            position: "top-midle",
-                            icon: "error",
-                            title: data.mess,
-                            showConfirmButton: false,
-                            timer: 2000,
-
-                        })
-                    }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    alert('Error deleting data');
+                    alert('Error get data from ajax');
                 }
             });
         }
-    });
-}
+
+        function deletes_uraian(id) {
+
+            Swal.fire({
+                title: "Are you sure to delete this Data ?",
+                // text: "Data akan dihapus",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#17a2b8",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, Delete"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "<?php echo site_url('admin/project/delete_uraian/') ?>" + id,
+                        type: "POST",
+                        dataType: "JSON",
+                        success: function(data) {
+                            if (data.status == '00') {
+                                Swal.fire({
+                                    position: "top-midle",
+                                    icon: "success",
+                                    title: data.mess,
+                                    showConfirmButton: false,
+                                    timer: 2000,
+
+                                }).then((result) => {
+                                    window.location.reload();
+
+                                })
+
+
+                            } else {
+                                Swal.fire({
+                                    position: "top-midle",
+                                    icon: "error",
+                                    title: data.mess,
+                                    showConfirmButton: false,
+                                    timer: 2000,
+
+                                })
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert('Error deleting data');
+                        }
+                    });
+                }
+            });
+        }
+
+        function delete_list(id) {
+
+            Swal.fire({
+                title: "Are you sure to delete this Data ?",
+                // text: "Data akan dihapus",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#17a2b8",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, Delete"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "<?php echo site_url('admin/project/delete_list/') ?>" + id,
+                        type: "POST",
+                        dataType: "JSON",
+                        success: function(data) {
+                            if (data.status == '00') {
+                                Swal.fire({
+                                    position: "top-midle",
+                                    icon: "success",
+                                    title: data.mess,
+                                    showConfirmButton: false,
+                                    timer: 2000,
+
+                                }).then((result) => {
+                                    window.location.reload();
+
+                                })
+
+
+                            } else {
+                                Swal.fire({
+                                    position: "top-midle",
+                                    icon: "error",
+                                    title: data.mess,
+                                    showConfirmButton: false,
+                                    timer: 2000,
+
+                                })
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            alert('Error deleting data');
+                        }
+                    });
+                }
+            });
+        }
     </script>

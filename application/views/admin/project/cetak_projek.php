@@ -10,6 +10,7 @@
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            font-size: 11px;
         }
 
         #table td,

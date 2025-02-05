@@ -5,11 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RAB <?= $projek['nama_projek'] ?></title>
+
     <style>
         #table {
             font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
             border-collapse: collapse;
             width: 100%;
+            font-size: 11px;
         }
 
         /* #table td,
@@ -63,7 +65,12 @@
             background-color: #FFEE58;
             color: #212121;
             padding: 5px;
+            border-top: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-left: 1px solid #ddd;
 
+            font-weight: bold;
         }
     </style>
 </head>
@@ -90,9 +97,19 @@
             $sub_total = 0;
             foreach ($uraian as $field) : ?>
                 <tr>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; border-left: 1px solid #ddd;height: 25px;">
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 25px;"></td>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 25px;"></td>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 25px;"></td>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 25px;"></td>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; height: 25px;"></td>
+                    <td style="border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; border-right: 1px solid #ddd;height: 25px;"></td>
+                </tr>
+                <tr style=" background-color: #ADC4CE;
+            color: #212121;">
                     <td class="l_border">
                     </td>
-                    <td style="border: none; padding:10px;">
+                    <td style="border: none; padding:10px;font-weight: bold;">
                         <?= $ab++ ?>. <?= $field->uraian ?>
                     <td style="border: none; ">
                     </td>
@@ -126,8 +143,8 @@
                     <td class="bb"></td>
                     <td class="bb"></td>
                     <td class="bb"></td>
-                    <td class="bb"></td>
-                    <td class="r_border bb">
+                    <td class="bb total" style=" text-align: right;">TOTAL</td>
+                    <td class="r_border bb total">
                         Rp. <?= number_format($total) ?>
                         <?php $sub_total += $total; ?>
                     </td>
@@ -141,8 +158,8 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td class="total">
-                    SUB TOTAL
+                <td class="total" style=" text-align: right;">
+                    GRAND TOTAL
                 <td class="total">
                     Rp. <?= number_format($sub_total) ?>
                 </td>
@@ -150,6 +167,9 @@
             </tr>
         </tbody>
     </table>
+
+
+
 </body>
 
 </html>

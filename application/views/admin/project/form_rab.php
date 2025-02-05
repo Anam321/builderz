@@ -65,8 +65,7 @@
                                     <div class="row mb-3">
                                         <label for="vol" class="col-sm-2 col-form-label">Volume</label>
                                         <div class="col-sm-10">
-
-                                            <input type="number" name="vol" class="form-control" id="vol">
+                                            <input type="text" name="vol" pattern="[0-9]+[.]" class="form-control" id="vol">
                                         </div>
                                     </div>
                                     <div class="row mb-3">
@@ -102,88 +101,87 @@
 
 
     <script>
-toastr.options = {
-    "closeButton": true,
-    "debug": false,
-    "newestOnTop": false,
-    "progressBar": true,
-    "positionClass": "toast-top-center",
-    "preventDuplicates": false,
-    "onclick": null,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
+        toastr.options = {
+            "closeButton": true,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": true,
+            "positionClass": "toast-top-center",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
 
-$('#form').submit(function(e) {
-    e.preventDefault();
-    var form = $('#form')[0];
-    var data = new FormData(form);
-    if ($('[name="vol"]').val() == '0') {
-        toastr.error('Volume cannot be empty')
-        return false;
-    }
-
-    if ($('[name="satuan"]').val() == '0') {
-        toastr.error('Satuan cannot be empty')
-        return false;
-    }
-
-
-    $('#save').html(
-        "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading..."
-    ).attr('disabled', true);
-    $.ajax({
-        url: '<?php echo site_url('admin/project/Post_rab') ?>',
-        type: "POST",
-        //contentType: 'multipart/form-data',
-        cache: false,
-        contentType: false,
-        processData: false,
-        method: 'POST',
-        data: data,
-        dataType: "JSON",
-
-        success: function(data) {
-            if (data.status == '00') {
-                setTimeout(function() {
-                    $('#save').text('Post Data'); //change button text
-                    $('#save').attr('disabled', false); //set button enable
-                    Swal.fire({
-                        position: "top-midle",
-                        icon: "success",
-                        title: data.mess,
-                        showConfirmButton: false,
-                        timer: 1500,
-
-                    }).then((result) => {
-                        window.location =
-                            '<?php echo base_url('admin/project/rab/') ?><?= $projek['id_projek'] ?>';
-                    })
-
-                }, 2000);
-            } else {
-                setTimeout(function() {
-                    $('#save').text('Post Data'); //change button text
-                    $('#save').attr('disabled', false); //set button enable
-                    toastr.error(data.mess)
-                }, 2000);
+        $('#form').submit(function(e) {
+            e.preventDefault();
+            var form = $('#form')[0];
+            var data = new FormData(form);
+            if ($('[name="vol"]').val() == '0') {
+                toastr.error('Volume cannot be empty')
+                return false;
             }
 
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            setTimeout(function() {
-                $('#save').text('Post Data'); //change button text
-                $('#save').attr('disabled', false); //set button enable
-                toastr.error('Error Code....')
-            }, 2000);
-        }
-    });
+            if ($('[name="satuan"]').val() == '0') {
+                toastr.error('Satuan cannot be empty')
+                return false;
+            }
 
-});
+
+            $('#save').html(
+                "<span class='spinner-border spinner-border-sm' role='status' aria-hidden='true'></span> Loading..."
+            ).attr('disabled', true);
+            $.ajax({
+                url: '<?php echo site_url('admin/project/Post_rab') ?>',
+                type: "POST",
+                //contentType: 'multipart/form-data',
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                data: data,
+                dataType: "JSON",
+
+                success: function(data) {
+                    if (data.status == '00') {
+                        setTimeout(function() {
+                            $('#save').text('Post Data'); //change button text
+                            $('#save').attr('disabled', false); //set button enable
+                            Swal.fire({
+                                position: "top-midle",
+                                icon: "success",
+                                title: data.mess,
+                                showConfirmButton: false,
+                                timer: 1500,
+
+                            }).then((result) => {
+                                window.location = '<?php echo base_url('admin/project/rab/') ?><?= $projek['id_projek'] ?>';
+                            })
+
+                        }, 2000);
+                    } else {
+                        setTimeout(function() {
+                            $('#save').text('Post Data'); //change button text
+                            $('#save').attr('disabled', false); //set button enable
+                            toastr.error(data.mess)
+                        }, 2000);
+                    }
+
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    setTimeout(function() {
+                        $('#save').text('Post Data'); //change button text
+                        $('#save').attr('disabled', false); //set button enable
+                        toastr.error('Error Code....')
+                    }, 2000);
+                }
+            });
+
+        });
     </script>
