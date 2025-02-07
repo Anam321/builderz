@@ -119,4 +119,11 @@ class Dashboard_m extends CI_Model
         $this->db->order_by('visitor', 'DESC');
         return $this->db->get($table)->result();
     }
+
+    public function get_online_users()
+    {
+        $time_limit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
+        $this->db->where('last_activity >', $time_limit);
+        return $this->db->get('users')->result();
+    }
 }

@@ -13,8 +13,7 @@ class Project extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Project_m', 'models');
-        is_logged_in();
-        role_superadmin();
+        check_user_role([1, 2]);
     }
     function componen()
     {

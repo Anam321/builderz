@@ -1,4 +1,5 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed'); ?>
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+$user = $this->db->get_where('users', ['username' => $this->session->userdata('username')])->row_array(); ?>
 <!-- Sale & Revenue Start -->
 
 <style>
@@ -198,6 +199,46 @@
                 <div class="card card-round">
                     <div class="card-body">
                         <div class="card-head-row card-tools-still-right">
+                            <div class="card-title">Users Online</div>
+
+                        </div>
+                        <div class="card-list py-4">
+                            <?php foreach ($users_online as $users): ?>
+                                <?php if ($users->username != $user['username']): ?>
+                                    <?php if ($users->foto == false) {
+                                        $f_user = 'userdefault.png';
+                                    } else {
+                                        $f_user = $users->foto;
+                                    } ?>
+                                    <div class="item-list">
+                                        <div class="avatar">
+                                            <img src="<?= base_url() ?>assets/upload/img/<?= $f_user ?>" alt="..." class="avatar-img rounded-circle">
+                                            <span class="position-absolute top-0 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+                                                <span class="visually-hidden">New alerts</span>
+                                            </span>
+                                        </div>
+                                        <div class="info-user ms-3">
+                                            <div class="username"><?= $users->nama; ?></div>
+                                            <div class="status"><?= jabatan($users->jabatan); ?></div>
+
+                                        </div>
+                                        <button class="btn btn-icon btn-link op-8 me-1">
+                                            <i class="far fa-envelope"></i>
+                                        </button>
+                                        <!-- <button class="btn btn-icon btn-link btn-danger op-8">
+                                        <i class="fas fa-ban"></i>
+                                    </button> -->
+                                    </div>
+                                <?php endif ?>
+                            <?php endforeach ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-round">
+                    <div class="card-body">
+                        <div class="card-head-row card-tools-still-right">
                             <div class="card-title">Post Populer</div>
 
                         </div>
@@ -223,7 +264,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-4">
                 <div class="card card-round">
                     <div class="card-header">
                         <div class="card-head-row card-tools-still-right">

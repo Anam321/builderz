@@ -8,7 +8,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Dashboard_m', 'models');
-        is_logged_in();
+        check_user_role([1, 2, 3]);
     }
     function componen()
     {
@@ -23,7 +23,7 @@ class Dashboard extends CI_Controller
         $data['metaTitle'] = 'Dashboard';
         $data['componen'] = $this->componen();
 
-
+        $data['users_online'] = $this->models->get_online_users();
         $data['conten'] = 'admin/dashboard';
         $data['jmlblog'] = $this->db->get('post')->num_rows();
         $data['populerblog'] = $this->models->get_populer_blog('post');

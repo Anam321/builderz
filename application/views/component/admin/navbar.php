@@ -151,14 +151,14 @@
                                             <div class="u-text">
                                                 <h4><?= $user['nama'] ?></h4>
                                                 <p class="text-muted"><?= $user['username'] ?></p>
-                                                <!-- <a href="profile.html" class="btn btn-xs btn-secondary btn-sm">View
-                                                     Profile</a> -->
+                                                <a href="<?= base_url('app-admin/profile') ?>" class="btn btn-xs btn-secondary btn-sm">View
+                                                    Profile</a>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="dropdown-divider"></div>
-                                        <!-- <a class="dropdown-item" href="#">My Profile</a> -->
+                                        <a class="dropdown-item" href="<?= base_url('app-admin/profile/edit') ?>">Setting</a>
                                         <a class="dropdown-item" href="<?= base_url('app-admin/logout') ?>">Logout</a>
                                     </li>
                                 </div>

@@ -34,7 +34,7 @@ class Message extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Message_m', 'models');
-        is_logged_in();
+        check_user_role([1, 3]);
     }
     function componen()
     {

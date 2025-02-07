@@ -8,8 +8,7 @@ class App_medsos extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Apps_m', 'models');
-        is_logged_in();
-        role_superadmin();
+        check_user_role([1]);
     }
     function componen()
     {

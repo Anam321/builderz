@@ -7,8 +7,7 @@ class About extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-
-        is_logged_in();
+        check_user_role([1, 3]);
     }
     function componen()
     {

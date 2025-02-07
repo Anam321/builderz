@@ -8,8 +8,7 @@ class Users extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Auth_m', 'models');
-        is_logged_in();
-        role_superadmin();
+        check_user_role([1]);
     }
     function componen()
     {
@@ -137,7 +136,7 @@ class Users extends CI_Controller
                         'email' => $this->input->post('email'),
                         'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                         'status' => 1,
-                        'creat' => date('Y-m-d'),
+                        'creat_date' => date('Y-m-d'),
                     );
 
                     $response = $this->models->insertData($data);

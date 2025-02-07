@@ -8,6 +8,7 @@ class Client extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Client_m', 'models');
+        check_user_role([1, 3]);
     }
     function componen()
     {

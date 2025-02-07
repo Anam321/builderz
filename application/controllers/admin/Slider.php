@@ -8,7 +8,7 @@ class Slider extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Slide_m', 'models');
-        is_logged_in();
+        check_user_role([1, 3]);
     }
     function componen()
     {

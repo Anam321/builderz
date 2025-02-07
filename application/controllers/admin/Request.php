@@ -8,7 +8,7 @@ class Request extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Request_m', 'models');
-        is_logged_in();
+        check_user_role([1, 3]);
     }
     function componen()
     {

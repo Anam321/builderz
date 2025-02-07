@@ -4,6 +4,9 @@
     $role = $this->db->get_where('users_role', ['role_id' => $user['role_id']])->row_array();
     $colorheadlogo = $this->db->get_where('template_color', ['id' => 1])->row_array();
     $colorside = $this->db->get_where('template_color', ['id' => 3])->row_array();
+
+    $user_role = $user['role_id'];
+
     ?>
  <div class="wrapper">
      <!-- Sidebar -->
@@ -36,6 +39,8 @@
              </div>
              <!-- End Logo Header -->
          </div>
+
+
          <div class="sidebar-wrapper scrollbar scrollbar-inner">
              <div class="sidebar-content">
                  <ul class="nav nav-secondary">
@@ -50,51 +55,53 @@
 
                      </li>
 
-                     <li class="nav-section">
-                         <span class="sidebar-mini-icon">
-                             <i class="fa fa-ellipsis-h"></i>
-                         </span>
-                         <h4 class="text-section">Web</h4>
-                     </li>
+                     <?php if (in_array($user_role, [1, 3])) : ?>
 
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'post') {
-                                                echo 'active';
-                                            }  ?>">
-                         <a data-bs-toggle="collapse" href="#post">
-                             <i class="fab fa-telegram-plane"></i>
-                             <p>Post</p>
-                             <span class="caret"></span>
-                         </a>
-                         <div class="collapse" id="post">
-                             <ul class="nav nav-collapse">
-                                 <li class="<?php if ($this->uri->segment(3) == 'list') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/post/post_list') ?>">
-                                         <span class="sub-item">List Post</span>
-                                     </a>
-                                 </li>
-                                 <!-- <li class="<?php if ($this->uri->segment(3) == 'comment') {
-                                                        echo 'active';
-                                                    } ?>">
+                         <li class="nav-section">
+                             <span class="sidebar-mini-icon">
+                                 <i class="fa fa-ellipsis-h"></i>
+                             </span>
+                             <h4 class="text-section">Web</h4>
+                         </li>
+
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'post') {
+                                                    echo 'active';
+                                                }  ?>">
+                             <a data-bs-toggle="collapse" href="#post">
+                                 <i class="fab fa-telegram-plane"></i>
+                                 <p>Post</p>
+                                 <span class="caret"></span>
+                             </a>
+                             <div class="collapse" id="post">
+                                 <ul class="nav nav-collapse">
+                                     <li class="<?php if ($this->uri->segment(3) == 'list') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/post/post_list') ?>">
+                                             <span class="sub-item">List Post</span>
+                                         </a>
+                                     </li>
+                                     <!-- <li class="<?php if ($this->uri->segment(3) == 'comment') {
+                                                            echo 'active';
+                                                        } ?>">
                                      <a href="<?= base_url('admin/post/comment/') ?>">
                                          <span class="sub-item">Comment</span>
                                      </a>
                                  </li> -->
-                                 <li class="<?php if ($this->uri->segment(3) == 'kategori') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('admin/post/kategori/') ?>">
-                                         <span class="sub-item">Kategori</span>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </div>
-                     </li>
-
-                     <!-- <li class="nav-item <?php if ($this->uri->segment(2) == 'catalog') {
+                                     <li class="<?php if ($this->uri->segment(3) == 'kategori') {
                                                     echo 'active';
-                                                } elseif ($this->uri->segment(2) == 'categori') ?>">
+                                                } ?>">
+                                         <a href="<?= base_url('admin/post/kategori/') ?>">
+                                             <span class="sub-item">Kategori</span>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </li>
+
+                         <!-- <li class="nav-item <?php if ($this->uri->segment(2) == 'catalog') {
+                                                        echo 'active';
+                                                    } elseif ($this->uri->segment(2) == 'categori') ?>">
                          <a data-bs-toggle="collapse" href="#katalog">
                              <i class="fas fa-image"></i>
                              <p>Katalog</p>
@@ -122,134 +129,131 @@
                      </li> -->
 
 
-                     <li class="nav-item  <?php if ($this->uri->segment(2) == 'about') {
-                                                echo 'active';
-                                            } elseif ($this->uri->segment(2) == 'service') {
-                                                echo 'active';
-                                            } elseif ($this->uri->segment(2) == 'portfolio') {
-                                                echo 'active';
-                                            } elseif ($this->uri->segment(2) == 'client') {
-                                                echo 'active';
-                                            } ?>">
-                         <a data-bs-toggle="collapse" href="#pages">
-                             <i class="far fa-clone"></i>
-                             <p>Pages</p>
-                             <span class="caret"></span>
-                         </a>
-                         <div class="collapse" id="pages">
-                             <ul class="nav nav-collapse">
-                                 <li class="<?php if ($this->uri->segment(2) == 'about') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/about/') ?>">
-                                         <span class="sub-item">About</span>
-                                     </a>
-                                 </li>
+                         <li class="nav-item  <?php if ($this->uri->segment(2) == 'about') {
+                                                    echo 'active';
+                                                } elseif ($this->uri->segment(2) == 'service') {
+                                                    echo 'active';
+                                                } elseif ($this->uri->segment(2) == 'portfolio') {
+                                                    echo 'active';
+                                                } elseif ($this->uri->segment(2) == 'client') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a data-bs-toggle="collapse" href="#pages">
+                                 <i class="far fa-clone"></i>
+                                 <p>Pages</p>
+                                 <span class="caret"></span>
+                             </a>
+                             <div class="collapse" id="pages">
+                                 <ul class="nav nav-collapse">
+                                     <li class="<?php if ($this->uri->segment(2) == 'about') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/about/') ?>">
+                                             <span class="sub-item">About</span>
+                                         </a>
+                                     </li>
 
-                                 <li class="<?php if ($this->uri->segment(2) == 'service') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/service/') ?>">
-                                         <span class="sub-item">Service</span>
-                                     </a>
-                                 </li>
+                                     <li class="<?php if ($this->uri->segment(2) == 'service') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/service/') ?>">
+                                             <span class="sub-item">Service</span>
+                                         </a>
+                                     </li>
 
-                                 <li class="<?php if ($this->uri->segment(2) == 'portfolio') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/portfolio/') ?>">
-                                         <span class="sub-item">Portfolio</span>
-                                     </a>
-                                 </li>
-                                 <li class="<?php if ($this->uri->segment(2) == 'client') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/client/') ?>">
-                                         <span class="sub-item">Client</span>
-                                     </a>
-                                 </li>
-                                 <li class="<?php if ($this->uri->segment(2) == 'features') {
-                                                echo 'active';
-                                            } ?>">
-                                     <a href="<?= base_url('app-admin/features/') ?>">
-                                         <span class="sub-item">Features</span>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </div>
-                     </li>
-
-
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'pages_seo') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/pages_seo/') ?>">
-                             <i class="fas fa-layer-group"></i>
-                             <p>Pages Seo</p>
-                         </a>
-
-                     </li>
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'whatsnav') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/whatsnav/') ?>">
-                             <i class="fab fa-whatsapp"></i>
-                             <p>Whatsapp Navigasi</p>
-                         </a>
-
-                     </li>
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'slider') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/slider/') ?>">
-                             <i class="fas fa-exchange-alt"></i>
-                             <p>Slide</p>
-                         </a>
-
-                     </li>
-
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'message') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/message/') ?>">
-                             <i class="fa fa-envelope"></i>
-                             <p>Message</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'quote') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/quote/') ?>">
-                             <i class="fa fa-handshake"></i>
-                             <p>Patner</p>
-                         </a>
-                     </li>
-
-                     <li class="nav-item <?php if ($this->uri->segment(2) == 'request') {
-                                                echo 'active';
-                                            } ?>">
-                         <a href="<?= base_url('app-admin/request/') ?>">
-                             <i class="fa fa-briefcase"></i>
-                             <p>Request</p>
-                         </a>
-                     </li>
+                                     <li class="<?php if ($this->uri->segment(2) == 'portfolio') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/portfolio/') ?>">
+                                             <span class="sub-item">Portfolio</span>
+                                         </a>
+                                     </li>
+                                     <li class="<?php if ($this->uri->segment(2) == 'client') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/client/') ?>">
+                                             <span class="sub-item">Client</span>
+                                         </a>
+                                     </li>
+                                     <li class="<?php if ($this->uri->segment(2) == 'features') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/features/') ?>">
+                                             <span class="sub-item">Features</span>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </div>
+                         </li>
 
 
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'pages_seo') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a href="<?= base_url('app-admin/pages_seo/') ?>">
+                                 <i class="fas fa-layer-group"></i>
+                                 <p>Pages Seo</p>
+                             </a>
 
+                         </li>
+                         <!-- <li class="nav-item <?php if ($this->uri->segment(2) == 'whatsnav') {
+                                                        echo 'active';
+                                                    } ?>">
+                             <a href="<?= base_url('app-admin/whatsnav/') ?>">
+                                 <i class="fab fa-whatsapp"></i>
+                                 <p>Whatsapp Navigasi</p>
+                             </a>
 
+                         </li> -->
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'slider') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a href="<?= base_url('app-admin/slider/') ?>">
+                                 <i class="fas fa-exchange-alt"></i>
+                                 <p>Slide</p>
+                             </a>
+
+                         </li>
+
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'message') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a href="<?= base_url('app-admin/message/') ?>">
+                                 <i class="fa fa-envelope"></i>
+                                 <p>Message</p>
+                             </a>
+                         </li>
+
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'quote') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a href="<?= base_url('app-admin/quote/') ?>">
+                                 <i class="fa fa-handshake"></i>
+                                 <p>Patner</p>
+                             </a>
+                         </li>
+
+                         <li class="nav-item <?php if ($this->uri->segment(2) == 'request') {
+                                                    echo 'active';
+                                                } ?>">
+                             <a href="<?= base_url('app-admin/request/') ?>">
+                                 <i class="fa fa-briefcase"></i>
+                                 <p>Request</p>
+                             </a>
+                         </li>
+
+                     <?php endif ?>
 
 
 
+                     <?php if (in_array($user_role, [1, 2])) : ?>
+                         <li class="nav-section">
+                             <span class="sidebar-mini-icon">
+                                 <i class="fa fa-ellipsis-h"></i>
+                             </span>
+                             <h4 class="text-section">Administrasi</h4>
+                         </li>
 
-
-                     <li class="nav-section">
-                         <span class="sidebar-mini-icon">
-                             <i class="fa fa-ellipsis-h"></i>
-                         </span>
-                         <h4 class="text-section">Administrasi</h4>
-                     </li>
-                     <?php if ($user['role_id'] == 1) : ?>
                          <li class="nav-item <?php if ($this->uri->segment(2) == 'project') {
                                                     echo 'active';
                                                 } ?>">
@@ -296,9 +300,6 @@
                          </li>
                      <?php endif ?>
 
-
-
-
                      <?php if ($user['role_id'] == 1) : ?>
                          <li class="nav-item <?php if ($this->uri->segment(2) == 'app') {
                                                     echo 'active';
@@ -337,13 +338,26 @@
                                              <span class="sub-item">Users</span>
                                          </a>
                                      </li>
-
+                                     <li class=" <?php if ($this->uri->segment(2) == 'users_position') {
+                                                        echo 'active';
+                                                    } ?>">
+                                         <a href="<?= base_url('app-admin/users_position/') ?>">
+                                             <span class="sub-item">Users Position</span>
+                                         </a>
+                                     </li>
 
                                      <li class="<?php if ($this->uri->segment(2) == 'plugin') {
                                                     echo 'active';
                                                 } ?>">
                                          <a href="<?= base_url('admin/plugin/') ?>">
                                              <span class="sub-item">Plugin</span>
+                                         </a>
+                                     </li>
+                                     <li class="<?php if ($this->uri->segment(2) == 'whatsnav') {
+                                                    echo 'active';
+                                                } ?>">
+                                         <a href="<?= base_url('app-admin/whatsnav/') ?>">
+                                             <span class="sub-item">Whatsapp Navigasi</span>
                                          </a>
                                      </li>
 

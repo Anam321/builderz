@@ -54,6 +54,10 @@ $route['app-admin/portfolio'] = 'admin/portfolio';
 $route['app-admin/whatsnav'] = 'admin/whatsnav';
 $route['app-admin/whatsnav'] = 'admin/whatsnav';
 
+$route['app-admin/profile'] = 'admin/profile/index';
+$route['app-admin/profile/edit'] = 'admin/profile/edit';
+$route['app-admin/profile/edit_akun'] = 'admin/profile/edit_akun';
+
 $route['sitemap-post\.xml'] = "Sitemap_post/index";
 $route['sitemap-portfolio\.xml'] = "Sitemap_post/portfolio";
 $route['sitemap-service\.xml'] = "Sitemap_post/service";

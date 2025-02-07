@@ -8,7 +8,7 @@ class Plugin extends CI_Controller
     {
         parent::__construct();
         $this->load->model('plugin_m', 'models');
-        is_logged_in();
+        check_user_role([1, 2]);
     }
     function componen()
     {
