@@ -27,7 +27,16 @@ class Users extends CI_Controller
 
         $this->load->view('main', $data);
     }
+    public function bio($x)
+    {
 
+        $data['metaTitle'] = 'Tambah Data Users';
+        $data['componen'] = $this->componen();
+        $data['conten'] = 'admin/users/bio';
+        $data['role'] = $this->models->get_role();
+        $data['bio'] = $this->db->get_where('users', ['username' => $x])->row_array();
+        $this->load->view('main', $data);
+    }
     public function form()
     {
 
@@ -35,6 +44,7 @@ class Users extends CI_Controller
         $data['componen'] = $this->componen();
         $data['conten'] = 'admin/users/form';
         $data['role'] = $this->models->get_role();
+        $data['jabatan'] = $this->db->get('users_jabatan')->result();
         $this->load->view('main', $data);
     }
     public function edit($val)
@@ -50,6 +60,7 @@ class Users extends CI_Controller
         $data['componen'] = $this->componen();
         $data['conten'] = 'admin/users/edit';
         $data['role'] = $this->models->get_role();
+        $data['jabatan'] = $this->db->get('users_jabatan')->result();
         $data['filed'] = $this->models->getBy($val);
         $this->load->view('main', $data);
     }
@@ -84,10 +95,12 @@ class Users extends CI_Controller
 
             if ($field->id == 1) {
                 $btnhapus = '';
+                $btnv = '';
             } else {
                 $btnhapus = ' <button onclick="deletes(' . $field->id . ')" type="button" class="btn btn-danger btn-sm "><i class="fa fa-trash me-2"></i>Delete</button>';
+                $btnv = ' <a href="' . base_url('app-admin/users/views/') . '' . $field->username . '"> <button type="button" class="btn btn-success btn-sm "><i class="fa fa-eye me-2"></i>View</button></a>';
             }
-            $row[] = '  <a href="' . base_url('admin/users/edit/') . '' . $field->username . '"> <button type="button" class="btn btn-warning btn-sm "><i class="fa fa-edit me-2"></i>Edit</button></a>
+            $row[] = '' . $btnv . ' <a href="' . base_url('app-admin/users/edit/') . '' . $field->username . '"> <button type="button" class="btn btn-warning btn-sm "><i class="fa fa-edit me-2"></i>Edit</button></a>
                         ' . $btnhapus . '';
             $data[] = $row;
         }
@@ -130,6 +143,9 @@ class Users extends CI_Controller
                 } else {
                     $data = array(
                         'nama' => $this->input->post('nama'),
+                        'jabatan' => $this->input->post('jabatan'),
+                        'jk' => $this->input->post('jk'),
+                        'alamat' => $this->input->post('alamat'),
                         'username' => $this->input->post('username'),
                         'role_id' => $this->input->post('role_id'),
                         'nohp' => $this->input->post('nohp'),
@@ -160,6 +176,9 @@ class Users extends CI_Controller
                     'nohp' => $this->input->post('nohp'),
                     'email' => $this->input->post('email'),
                     'status' => $this->input->post('status'),
+                    'jabatan' => $this->input->post('jabatan'),
+                    'jk' => $this->input->post('jk'),
+                    'alamat' => $this->input->post('alamat'),
 
                 );
                 $update = $this->models->update(array('id' => $this->input->post('id')), $data);

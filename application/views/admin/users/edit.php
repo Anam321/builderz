@@ -31,7 +31,7 @@
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
                                     <h4 class="card-title">Edit Users</h4>
-                                    <a class="btn btn-primary btn-round ms-auto" href="<?= base_url('admin/users/') ?>">
+                                    <a class="btn btn-primary btn-round ms-auto" href="<?= base_url('app-admin/users/') ?>">
                                         <i class="fa fa-arrow-left"></i>
                                         Back To List
                                     </a>
@@ -43,13 +43,7 @@
                                         <div class="card-body">
                                             <h6 class="mb-4">Form Users</h6>
                                             <input type="hidden" name="id" value="<?= $filed['id'] ?>">
-                                            <div class="row mb-3">
-                                                <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="username" class="form-control"
-                                                        id="username" value="<?= $filed['username'] ?>">
-                                                </div>
-                                            </div>
+
                                             <div class="row mb-3">
                                                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
@@ -58,18 +52,28 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="role_id" class="col-sm-2 col-form-label">Role</label>
+                                                <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
                                                 <div class="col-sm-10">
-                                                    <select name="role_id" class="form-control" id="role_id">
-                                                        <option></option>
-                                                        <?php foreach ($role as $rol) : ?>
-                                                        <option <?php if ($filed['role_id'] == $rol->role_id) {
-                                                                        echo 'selected';
-                                                                    } ?> value="<?= $rol->role_id ?>"><?= $rol->role ?>
-                                                        </option>
+                                                    <select name="jabatan" class="form-control">
+                                                        <?php foreach ($jabatan as $j): ?>
+                                                            <option <?php if ($filed['jabatan'] == $j->slug) {
+                                                                        echo "selected";
+                                                                    } ?> value="<?= $j->slug ?>"><?= $j->jabatan ?></option>
                                                         <?php endforeach ?>
                                                     </select>
-
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="jk" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                                <div class="col-sm-10">
+                                                    <select name="jk" class="form-control">
+                                                        <option <?php if ($filed['jk'] == 'LAKI-LAKI') {
+                                                                    echo "selected";
+                                                                } ?> value="LAKI-LAKI">LAKI-LAKI</option>
+                                                        <option <?php if ($user['jk'] == 'PEREMPUAN') {
+                                                                    echo "selected";
+                                                                } ?> value="PEREMPUAN">PEREMPUAN</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -93,12 +97,12 @@
                                                         <option></option>
                                                         <?php $status = ['1', '0'];
                                                         foreach ($status as $st) : ?>
-                                                        <?php if ($st == 1) {
+                                                            <?php if ($st == 1) {
                                                                 $stt = 'Aktif';
                                                             } else {
                                                                 $stt = 'Tidak Aktif';
                                                             } ?>
-                                                        <option <?php if ($filed['status'] == $st) {
+                                                            <option <?php if ($filed['status'] == $st) {
                                                                         echo 'selected';
                                                                     } ?> value="<?= $st ?>"><?= $stt ?></option>
                                                         <?php endforeach ?>
@@ -106,12 +110,40 @@
 
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="alamat" id="alamat"
+                                                        height="150"><?= $filed['alamat'] ?></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card mt-3">
                                         <div class="card-body">
                                             <h6 class="mb-4">Change Password</h6>
+                                            <div class="row mb-3">
+                                                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="username" class="form-control"
+                                                        id="username" value="<?= $filed['username'] ?>">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="role_id" class="col-sm-2 col-form-label">Role</label>
+                                                <div class="col-sm-10">
+                                                    <select name="role_id" class="form-control" id="role_id">
+                                                        <option></option>
+                                                        <?php foreach ($role as $rol) : ?>
+                                                            <option <?php if ($filed['role_id'] == $rol->role_id) {
+                                                                        echo 'selected';
+                                                                    } ?> value="<?= $rol->role_id ?>"><?= $rol->role ?>
+                                                            </option>
+                                                        <?php endforeach ?>
+                                                    </select>
 
+                                                </div>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                                                 <div class="col-sm-10">

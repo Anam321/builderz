@@ -31,7 +31,7 @@
                             <div class="card-header">
                                 <div class="d-flex align-items-center">
                                     <h4 class="card-title">Form Users</h4>
-                                    <a class="btn btn-primary btn-round ms-auto" href="<?= base_url('admin/users/') ?>">
+                                    <a class="btn btn-primary btn-round ms-auto" href="<?= base_url('app-admin/users/') ?>">
                                         <i class="fa fa-arrow-left"></i>
                                         Back To List
                                     </a>
@@ -42,13 +42,7 @@
                                     <div class="card">
                                         <div class="card-body">
 
-                                            <div class="row mb-3">
-                                                <label for="username" class="col-sm-2 col-form-label">Username</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" name="username" class="form-control"
-                                                        id="username">
-                                                </div>
-                                            </div>
+
                                             <div class="row mb-3">
                                                 <label for="nama" class="col-sm-2 col-form-label">Nama</label>
                                                 <div class="col-sm-10">
@@ -56,18 +50,27 @@
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
-                                                <label for="role_id" class="col-sm-2 col-form-label">Role</label>
+                                                <label for="jabatan" class="col-sm-2 col-form-label">Jabatan</label>
                                                 <div class="col-sm-10">
-                                                    <select name="role_id" class="form-control" id="role_id">
-                                                        <option></option>
-                                                        <?php foreach ($role as $field) : ?>
-                                                        <option value="<?= $field->role_id ?>"><?= $field->role ?>
-                                                        </option>
+                                                    <select name="jabatan" class="form-control">
+                                                        <option value="0"></option>
+                                                        <?php foreach ($jabatan as $j): ?>
+                                                            <option value="<?= $j->slug ?>"><?= $j->jabatan ?></option>
                                                         <?php endforeach ?>
                                                     </select>
-
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                                <label for="jk" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                                <div class="col-sm-10">
+                                                    <select name="jk" class="form-control">
+                                                        <option value="0"></option>
+                                                        <option value="LAKI-LAKI">LAKI-LAKI</option>
+                                                        <option value="PEREMPUAN">PEREMPUAN</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
                                             <div class="row mb-3">
                                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                                 <div class="col-sm-10">
@@ -80,12 +83,38 @@
                                                     <input type="number" name="nohp" class="form-control" id="nohp">
                                                 </div>
                                             </div>
+                                            <div class="row mb-3">
+                                                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                                <div class="col-sm-10">
+                                                    <textarea class="form-control" name="alamat" id="alamat"
+                                                        height="150"></textarea>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="card mt-3">
                                         <div class="card-body">
-                                            <h6 class="mb-4">Change Password</h6>
+                                            <h6 class="mb-4">Change Akun</h6>
+                                            <div class="row mb-3">
+                                                <label for="username" class="col-sm-2 col-form-label">Username</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" name="username" class="form-control"
+                                                        id="username">
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="role_id" class="col-sm-2 col-form-label">Role</label>
+                                                <div class="col-sm-10">
+                                                    <select name="role_id" class="form-control" id="role_id">
+                                                        <option></option>
+                                                        <?php foreach ($role as $field) : ?>
+                                                            <option value="<?= $field->role_id ?>"><?= $field->role ?>
+                                                            </option>
+                                                        <?php endforeach ?>
+                                                    </select>
 
+                                                </div>
+                                            </div>
                                             <div class="row mb-3">
                                                 <label for="password" class="col-sm-2 col-form-label">Password</label>
                                                 <div class="col-sm-10">

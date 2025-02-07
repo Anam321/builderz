@@ -39,7 +39,7 @@
                                             <th scope="col">Telpon</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Role</th>
-                                            <th scope="col">Status</th>
+                                            <th scope="col">Status Akun</th>
                                             <th scope="col">Aksi</th>
                                         </tr>
                                     </thead>

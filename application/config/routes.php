@@ -41,6 +41,11 @@ $route['app-admin/features'] = 'admin/features';
 $route['app-admin/quote'] = 'admin/quote';
 $route['app-admin/request'] = 'admin/request';
 
+$route['app-admin/users_position'] = 'admin/user_position';
+
+$route['app-admin/users/views/(:any)'] = 'admin/users/bio/$1';
+$route['app-admin/users/edit/(:any)'] = 'admin/users/edit/$1';
+
 $route['app-admin/message'] = 'admin/message';
 $route['app-admin/project'] = 'admin/project';
 $route['app-admin/stock/data_barang'] = 'admin/stock/data_barang';
