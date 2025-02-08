@@ -8,6 +8,7 @@ class Dashboard extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Dashboard_m', 'models');
+        $this->load->model('Chat_m');
         check_user_role([1, 2, 3]);
     }
     function componen()
@@ -27,6 +28,10 @@ class Dashboard extends CI_Controller
         $data['conten'] = 'admin/dashboard';
         $data['jmlblog'] = $this->db->get('post')->num_rows();
         $data['populerblog'] = $this->models->get_populer_blog('post');
+
+        // $data['users'] = $this->Chat_m->get_users($this->session->userdata('id'));
+        $user_id = $this->session->userdata('id');
+        $data['unread '] = $this->Chat_m->get_unread_count($user_id);
         $this->load->view('main', $data);
     }
 
@@ -81,5 +86,49 @@ class Dashboard extends CI_Controller
         }
 
         echo json_encode($data);
+    }
+
+    public function get_users()
+    {
+        $users = $this->Chat_m->get_users($this->session->userdata('id'));
+        echo json_encode($users);
+    }
+
+    public function get_unread_messages()
+    {
+        $user_id = $this->session->userdata('id');
+        $unread = $this->Chat_m->get_unread_count($user_id);
+        echo json_encode($unread);
+    }
+
+    public function mark_messages_as_read($user_from)
+    {
+        $user_to = $this->session->userdata('id');
+        $this->Chat_m->mark_as_read($user_from, $user_to);
+    }
+
+    public function get_messages($user_to)
+    {
+        // print_r($user_to);
+        $messages = $this->Chat_m->get_messages($this->session->userdata('id'), $user_to);
+        echo json_encode($messages);
+    }
+
+    public function send_message()
+    {
+        $data = [
+            'user_from' => $this->session->userdata('id'),
+            'user_to' => $this->input->post('user_to'),
+            'message' => $this->input->post('message')
+        ];
+        $this->Chat_m->insert_message($data);
+        echo json_encode(['status' => 'success']);
+    }
+    public function get_data_ById($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = $this->Chat_m->get_data_ById($id);
+            echo json_encode($data);
+        }
     }
 }

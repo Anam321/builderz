@@ -30,6 +30,194 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
         text-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
         transition: all 0.5s cubic-bezier(0.6, 0.2, 0.1, 2);
     }
+
+
+
+
+
+
+
+    @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900&display=swap');
+
+    button:focus,
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    a,
+    a:hover {
+        text-decoration: none;
+    }
+
+
+    /*------------------  */
+    .order-chat-section {
+        border: 2px solid #dadee3;
+        border-radius: 7px;
+        overflow: hidden;
+    }
+
+    .order-chat-header {
+        padding: 12px 30px;
+        background-color: #ebeef2;
+        border-bottom: 2px solid #dadee3;
+    }
+
+    .order-store-detail {
+        display: flex;
+        align-items: center;
+    }
+
+    .order-store-img {
+        width: 60px;
+        height: 60px;
+        min-width: 40px;
+        min-height: 40px;
+        padding: 8px;
+        border-radius: 50%;
+        margin-right: 13px;
+        overflow: hidden;
+    }
+
+    .order-store-img img {
+        max-width: 100%;
+    }
+
+    .order-store-text-head h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0px;
+    }
+
+    .order-chat-content {
+        padding: 20px 30px;
+        max-height: 400px;
+        min-height: 200px;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    .order-chat-area {
+        max-width: 40%;
+        font-size: 13px;
+        padding: 15px;
+        border-radius: 12px;
+        font-weight: 500;
+        line-height: 20px;
+        display: inline-block;
+        box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+        position: relative;
+    }
+
+    .order-chat-list-sec {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .order-chat-list-sec.left-chat {
+        text-align: left;
+    }
+
+    .order-chat-list-sec.right-chat {
+        text-align: right;
+    }
+
+    .order-chat-list-sec.left-chat .order-chat-area {
+        background-color: #6dacf5;
+        border-top-left-radius: 0px;
+        color: #fff;
+    }
+
+    .order-chat-list-sec.right-chat .order-chat-area {
+        background-color: #ffbc60;
+        border-top-right-radius: 0px;
+        text-align: left;
+    }
+
+    .order-chat-area .msg-time {
+        position: absolute;
+        font-size: 11px;
+        top: 100%;
+        color: #536da3;
+        font-weight: 700;
+        padding: 2px;
+        white-space: nowrap;
+    }
+
+    .order-chat-list-sec.left-chat .msg-time {
+        left: 0px;
+    }
+
+    .order-chat-list-sec.right-chat .msg-time {
+        right: 0px;
+    }
+
+    .order-chat-footer {
+        background-color: #f6f8fb;
+    }
+
+    .order-chat-footer {
+        background-color: #f6f8fb;
+        display: inline-block;
+        width: 100%;
+        border-top: 2px solid #dadee3;
+        padding: 10px 15px;
+        padding-bottom: 5px;
+    }
+
+    .order-chat-enter-area {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+    }
+
+    .order-chat-enter-area .form-control {
+        border: none;
+        background-color: transparent;
+        max-height: 43px;
+        resize: none;
+        padding-right: 100px;
+    }
+
+    .chat-attach-link {
+        display: inline-block;
+        padding: 11px 12px;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .chat-file-link-set {
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .chat-attach-link img {
+        width: 20px;
+        cursor: pointer;
+    }
+
+    .chat-actions-button {
+        position: absolute;
+        right: 0px;
+        top: 0;
+    }
+
+    .chat-msg-send-btn {
+        border: none;
+        background-color: transparent;
+        padding: 11px 12px;
+    }
+
+    .chat-msg-send-btn img {
+        width: 20px;
+    }
 </style>
 
 
@@ -222,12 +410,13 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                                             <div class="status"><?= jabatan($users->jabatan); ?></div>
 
                                         </div>
-                                        <button class="btn btn-icon btn-link op-8 me-1">
+                                        <button class="btn btn-icon btn-link op-8 me-1" onclick="setChat(<?= $users->id ?>)">
                                             <i class="far fa-envelope"></i>
+                                            <span class="top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                                <span class="visually-hidden">New alerts</span>
+                                            </span>
                                         </button>
-                                        <!-- <button class="btn btn-icon btn-link btn-danger op-8">
-                                        <i class="fas fa-ban"></i>
-                                    </button> -->
+
                                     </div>
                                 <?php endif ?>
                             <?php endforeach ?>
@@ -235,6 +424,63 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                     </div>
                 </div>
             </div>
+
+
+
+            <div
+                class="modal fade"
+                id="modaldata"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalMessageTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+
+
+                            <div class="order-chat-section">
+                                <div class="order-chat-header">
+                                    <div class="order-store-detail">
+                                        <div class="order-store-img bg-dark-shop" id="showfoto">
+                                        </div>
+                                        <div class="order-store-text-head">
+                                            <h3 id="nama_user"></h3>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="order-chat-content chat-scrollbar" id="chat-box">
+                                </div>
+                                <div class="order-chat-footer">
+                                    <div class="order-chat-enter-area">
+                                        <input type="hidden" name="user_to" id="user_to">
+                                        <textarea id="message" placeholder="Type a message" name="" class="form-control"></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                data-bs-dismiss="modal">
+                                Close
+                            </button>
+                            <button id="send" class="btn btn-primary">Send message</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
             <div class="col-md-4">
                 <div class="card card-round">
                     <div class="card-body">
@@ -431,4 +677,73 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
         $('#yearSelect').trigger('change');
 
     });
+</script>
+
+<script>
+    // function loadUsers() {
+    //     $.getJSON("<?= base_url('admin/dashboard/get_users'); ?>", function(users) {
+    //         $.getJSON("<?= base_url('admin/dashboard/get_unread_messages'); ?>", function(unreadData) {
+    //             let unreadCounts = {};
+    //             $.each(unreadData, function(index, data) {
+    //                 unreadCounts[data.user_from] = data.unread_count;
+    //             });
+
+    //             let html = '';
+    //             $.each(users, function(index, user) {
+    //                 let unreadBadge = unreadCounts[user.id] ? ` <span style="color: red;">(${unreadCounts[user.id]})</span>` : '';
+    //                 html += `<li><a href="#" onclick="setChat(${user.id})">${user.username}${unreadBadge}</a></li>`;
+    //             });
+
+    //             $("#user-list").html(html);
+    //         });
+    //     });
+    // }
+
+    function setChat(userId) {
+        $.ajax({
+            url: "<?php echo site_url('admin/dashboard/get_data_ById/') ?>" + userId,
+            type: "POST",
+            dataType: "JSON",
+
+            success: function(data) {
+                $('#showfoto').append(
+                    '<img src = "<?= base_url() ?>assets/upload/img/' + data.foto + '" class = "avatar-img rounded-circle" >');
+                $('#modaldata').modal('show');
+                $("#user_to").val(userId);
+                $("#nama_user").text(data.nama);
+                loadMessages();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert('Error get data from ajax');
+            }
+        });
+
+
+    }
+
+    function loadMessages() {
+
+        $.getJSON("<?= base_url('admin/dashboard/get_messages/'); ?>" + $('[name="user_to"]').val(), function(data) {
+            let html = '';
+            let currentUser = <?= $this->session->userdata('id'); ?>;
+            $.each(data, function(index, msg) {
+                let align = (msg.user_from == currentUser) ? 'order-chat-list-sec right-chat mt-3' : 'order-chat-list-sec left-chat mt-3';
+                html += ' <div class="' + align + '"><div class = "order-chat-area">' + msg.message + '<div class = "msg-time" > ' + msg.formatted_time + '</div></div></div>';
+            });
+            $("#chat-box").html(html);
+        });
+    }
+
+    $("#send").click(function() {
+        $.post("<?= base_url('admin/dashboard/send_message'); ?>", {
+            user_to: $("#user_to").val(),
+            message: $("#message").val()
+        }, function() {
+            $("#message").val('');
+            loadMessages();
+        });
+    });
+
+    setInterval(loadMessages, 2000);
+    loadUsers();
 </script>
