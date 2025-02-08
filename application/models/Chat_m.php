@@ -35,7 +35,7 @@ class Chat_m extends CI_Model
         $this->db->where('is_read', 0);
         $this->db->group_by('user_from');
 
-        return $this->db->get('chats')->result();
+        return $this->db->get('chats')->num_rows();
     }
     public function mark_as_read($user_from, $user_to)
     {

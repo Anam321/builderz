@@ -409,12 +409,15 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                                             <div class="username"><?= $users->nama; ?></div>
                                             <div class="status"><?= jabatan($users->jabatan); ?></div>
 
+
                                         </div>
                                         <button class="btn btn-icon btn-link op-8 me-1" onclick="setChat(<?= $users->id ?>)">
                                             <i class="far fa-envelope"></i>
-                                            <span class="top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
-                                                <span class="visually-hidden">New alerts</span>
-                                            </span>
+                                            <?php if ($unread > 0): ?>
+                                                <span class="top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                                    <span class="visually-hidden">New alerts</span>
+                                                </span>
+                                            <?php endif ?>
                                         </button>
 
                                     </div>
@@ -474,12 +477,6 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
 
             <div class="col-md-4">
                 <div class="card card-round">
@@ -711,7 +708,9 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                 $('#modaldata').modal('show');
                 $("#user_to").val(userId);
                 $("#nama_user").text(data.nama);
+                $.get("<?= base_url('admin/dashboard/mark_messages_as_read/'); ?>" + userId);
                 loadMessages();
+                setInterval(loadMessages, 2000);
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert('Error get data from ajax');
@@ -731,9 +730,13 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
                 html += ' <div class="' + align + '"><div class = "order-chat-area">' + msg.message + '<div class = "msg-time" > ' + msg.formatted_time + '</div></div></div>';
             });
             $("#chat-box").html(html);
+            scrollToBottom();
         });
     }
 
+    function scrollToBottom() {
+        $("#chat-box").scrollTop($("#chat-box")[0].scrollHeight);
+    }
     $("#send").click(function() {
         $.post("<?= base_url('admin/dashboard/send_message'); ?>", {
             user_to: $("#user_to").val(),
@@ -744,6 +747,6 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
         });
     });
 
-    setInterval(loadMessages, 2000);
-    loadUsers();
+
+    // loadUsers();
 </script>

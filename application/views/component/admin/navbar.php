@@ -86,7 +86,7 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fa fa-envelope"></i>
                                 <?php if ($jmlmsg > 0) : ?> <span
-                                        class="notification"><?= $jmlmsg ?></span><?php endif ?></i>
+                                        class="notification"><?= $jmlmsg ?></span><?php endif ?>
                             </a>
                             <ul class="dropdown-menu messages-notif-box animated fadeIn"
                                 aria-labelledby="messageDropdown">

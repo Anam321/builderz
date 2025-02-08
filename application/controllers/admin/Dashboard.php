@@ -31,7 +31,7 @@ class Dashboard extends CI_Controller
 
         // $data['users'] = $this->Chat_m->get_users($this->session->userdata('id'));
         $user_id = $this->session->userdata('id');
-        $data['unread '] = $this->Chat_m->get_unread_count($user_id);
+        $data['unread'] = $this->Chat_m->get_unread_count($user_id);
         $this->load->view('main', $data);
     }
 
@@ -94,12 +94,7 @@ class Dashboard extends CI_Controller
         echo json_encode($users);
     }
 
-    public function get_unread_messages()
-    {
-        $user_id = $this->session->userdata('id');
-        $unread = $this->Chat_m->get_unread_count($user_id);
-        echo json_encode($unread);
-    }
+
 
     public function mark_messages_as_read($user_from)
     {
@@ -109,7 +104,7 @@ class Dashboard extends CI_Controller
 
     public function get_messages($user_to)
     {
-        // print_r($user_to);
+
         $messages = $this->Chat_m->get_messages($this->session->userdata('id'), $user_to);
         echo json_encode($messages);
     }
@@ -119,7 +114,8 @@ class Dashboard extends CI_Controller
         $data = [
             'user_from' => $this->session->userdata('id'),
             'user_to' => $this->input->post('user_to'),
-            'message' => $this->input->post('message')
+            'message' => $this->input->post('message'),
+            'is_read' => 0,
         ];
         $this->Chat_m->insert_message($data);
         echo json_encode(['status' => 'success']);
