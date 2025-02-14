@@ -13,6 +13,6 @@
 
     <?php $this->load->view($componen['footer']); ?>
 
-</body>
+</body data-background-color="dark">
 
 </html>
