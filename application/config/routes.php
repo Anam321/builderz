@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 $route['default_controller'] = 'app';
-$route['404_override'] = '';
+$route['404_override'] = 'error_404';
 $route['translate_uri_dashes'] = FALSE;
 $route['app-admin/login'] = 'auth/index';
 $route['app-admin/logout'] = 'auth/logout';
