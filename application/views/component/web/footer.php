@@ -65,7 +65,7 @@ $query = $this->db->get('s_service')->result();
                 <p class="m-md-0">&copy; <a href="#"><?= AppIdentitas('nama_web') ?></a>, All Right Reserved.</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
-                <p class="m-0">Designed By <a href="https://htmlcodex.com/">HTML Codex</a></p>
+                <p class="m-0">Developer By <a href="https://sanam.my.id">VORTEX - S ANAM</a></p>
             </div>
         </div>
     </div>

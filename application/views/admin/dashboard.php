@@ -411,7 +411,7 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
 
 
                                         </div>
-                                        <button class="btn btn-icon btn-link op-8 me-1" onclick="setChat(<?= $users->id ?>)">
+                                        <button type="button" class="btn btn-icon btn-link op-8 me-1" onclick="setchat(<?= $users->id ?>)">
                                             <i class="far fa-envelope"></i>
                                             <?php if ($unread > 0): ?>
                                                 <span class="top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
@@ -430,53 +430,10 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
 
 
 
-            <div
-                class="modal fade"
-                id="modaldata"
-                tabindex="-1"
-                role="dialog"
-                aria-labelledby="exampleModalMessageTitle"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-
-                        <div class="modal-body">
 
 
-                            <div class="order-chat-section">
-                                <div class="order-chat-header">
-                                    <div class="order-store-detail">
-                                        <div class="order-store-img bg-dark-shop" id="showfoto">
-                                        </div>
-                                        <div class="order-store-text-head">
-                                            <h3 id="nama_user"></h3>
 
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="order-chat-content chat-scrollbar" id="chat-box">
-                                </div>
-                                <div class="order-chat-footer">
-                                    <div class="order-chat-enter-area">
-                                        <input type="hidden" name="user_to" id="user_to">
-                                        <textarea id="message" placeholder="Type a message" name="" class="form-control"></textarea>
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button
-                                type="button"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal">
-                                Close
-                            </button>
-                            <button id="send" class="btn btn-primary">Send message</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <div class="col-md-4">
                 <div class="card card-round">
@@ -542,7 +499,48 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
 
 
 
+<div class="modal fade" id="modaldata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
 
+            <div class="modal-body">
+
+
+                <div class="order-chat-section">
+                    <div class="order-chat-header">
+                        <div class="order-store-detail">
+                            <div class="order-store-img bg-dark-shop" id="showfoto">
+                            </div>
+                            <div class="order-store-text-head">
+                                <h3 id="nama_user"></h3>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-chat-content chat-scrollbar" id="chat-box">
+                    </div>
+                    <div class="order-chat-footer">
+                        <div class="order-chat-enter-area">
+                            <input type="hidden" name="user_to" id="user_to">
+                            <textarea id="message" placeholder="Type a message" name="" class="form-control"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+                    Close
+                </button>
+                <button id="send" class="btn btn-primary">Send message</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Widgets End -->
 <script src="<?= base_url() ?>assets/admin/lib/chart/chart.min.js"></script>
@@ -688,7 +686,7 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
     //             let html = '';
     //             $.each(users, function(index, user) {
     //                 let unreadBadge = unreadCounts[user.id] ? ` <span style="color: red;">(${unreadCounts[user.id]})</span>` : '';
-    //                 html += `<li><a href="#" onclick="setChat(${user.id})">${user.username}${unreadBadge}</a></li>`;
+    //                 html += `<li><a href="#" onclick="setchat(${user.id})">${user.username}${unreadBadge}</a></li>`;
     //             });
 
     //             $("#user-list").html(html);
@@ -696,7 +694,7 @@ $user = $this->db->get_where('users', ['username' => $this->session->userdata('u
     //     });
     // }
 
-    function setChat(userId) {
+    function setchat(userId) {
         $.ajax({
             url: "<?php echo site_url('admin/dashboard/get_data_ById/') ?>" + userId,
             type: "POST",
